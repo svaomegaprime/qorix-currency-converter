@@ -1,0 +1,48 @@
+export const defaultSettingsGeneral = {
+  storeDefaults: { currency: "usd" },
+  appBehavior: {
+    enableCurrency: true,
+    enableVisitorPreference: true,
+    enableWidgetOnAllPages: true,
+    exchangeRateFrequency: "12_hours",
+    visitorPreferenceVersion: 1,
+  },
+};
+
+export const defaultSettingsWidget = {
+  widgetType: "combined",
+  position: "bottom_left",
+  customSelector: "",
+  offsetFromEdge: { horizontal: 0, vertical: 0 },
+  themeCustomisation: {
+    backgroundColor: "#ffffff",
+    hoverBackground: "#B8B8B8",
+    textColor: "#303030",
+    borderColor: "#B8B8B8",
+    hoverColor: "#202020",
+    borderRadius: 8,
+    shadow: "none",
+  },
+  visibility: { enableOnDesktop: true, enableOnMobile: true },
+};
+
+export const defaultCurrencyGeneral = {
+  activeCurrencies: ["usd", "eur", "bdt"],
+  locationDetection: false,
+  priceDisplayFormat: "without_currency_code",
+  restrictedAutoSwitch: {
+    isEnabled: false,
+    restrictedCurrencies: ["jpy", "cny", "inr", "bdt"],
+  },
+  fallBackCurrency: "usd",
+};
+
+export const defaultCurrencyDesign = {
+  displayMode: "currency_code",
+  flagStyle: "2d_flag",
+  behavior: {
+    darkModeSupport: false,
+    showCurrencyNameOnHover: true,
+    showOriginalPriceOnHover: false,
+  },
+};

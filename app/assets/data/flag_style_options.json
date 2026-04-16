@@ -1,0 +1,14 @@
+[
+    {
+        "value": "3d_flag",
+        "label": "3D Flag"
+    },
+    {
+        "value": "2d_flag",
+        "label": "2D Flag"
+    },
+    {
+        "value": "no_flag",
+        "label": "No Flag"
+    }
+]

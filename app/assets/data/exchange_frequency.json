@@ -1,0 +1,18 @@
+[
+    {
+        "value": "6_hours",
+        "label": "Every 6 hours"
+    },
+    {
+        "value": "12_hours",
+        "label": "Every 12 hours"
+    },
+    {
+        "value": "24_hours",
+        "label": "Every 24 hours"
+    },
+    {
+        "value": "48_hours",
+        "label": "Every 48 hours"
+    }
+]

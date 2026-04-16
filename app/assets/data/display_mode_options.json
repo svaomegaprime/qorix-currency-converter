@@ -1,0 +1,10 @@
+[
+    {
+        "value": "currency_code",
+        "label": "Currency Code"
+    },
+    {
+        "value": "currency_name",
+        "label": "Currency Name"
+    }
+]
