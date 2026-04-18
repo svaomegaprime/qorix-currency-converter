@@ -10,7 +10,11 @@
     max-width: fit-content;
     max-height: fit-content;
 }
-
+#currency-converter * img {
+    aspect-ratio: unset !important;
+    width: 24px !important;
+    height: 16px !important;
+}
 
 /* positioning for floating widget started */
 #currency-converter:not(.inject-widget).top_left{
@@ -176,6 +180,9 @@
 }
 #currency-converter-widget .currency-widget__dropdown ul li:hover,
 #currency-converter-widget .currency-widget__dropdown ul li.active{
-    color: var(--w-hover-color) !important;
     background-color: var(--w-bg-hover) !important;
+}
+
+#currency-converter-widget .currency-widget__dropdown ul li:hover span{
+    color: var(--w-hover-color) !important;
 }

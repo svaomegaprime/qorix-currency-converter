@@ -73,16 +73,16 @@ export default function AppBehavior({ data, handleChange }) {
                     />
                     <s-switch
                         label="Remember visitor preference"
-                        details="Saves chosen currency and language in a browser cookie across sessions"
+                        details="Saves chosen currency preferences in a browser cookie across sessions"
                         checked={enableVisitorPreference}
                         onChange={handleEnableVisitorPreference}
                     />
-                    <s-switch
+                    {/* <s-switch
                         label="Show widget on all pages"
                         details="Uncheck to control placement manually via Shopify theme editor"
                         checked={enableWidgetOnAllPages}
                         onChange={handleEnableWidgetOnAllPages}
-                    />
+                    /> */}
                 </s-stack>
                 <s-stack gap="small" paddingBlockStart="base">
                     <s-stack>

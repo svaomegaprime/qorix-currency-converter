@@ -119,6 +119,10 @@ export default function Currency() {
             { method: "post" }
         );
         shopify.saveBar.hide('save-bar');
+        shopify.toast.show({
+            message: "Settings saved",
+            duration: 2000,
+        });
     };
 
     const handleDiscard = () => {
@@ -126,6 +130,10 @@ export default function Currency() {
         setDesignSettings(currencyDesign);
         setAppSettings(settingsGeneral);
         shopify.saveBar.hide('save-bar');
+        shopify.toast.show({
+            message: "Changes discarded",
+            duration: 2000,
+        });
     };
     const handleChange = (event) => {
         if (event.target === "general") {
@@ -165,6 +173,10 @@ export default function Currency() {
             },
             { method: "post" }
         );
+        shopify.toast.show({
+            message: "Currency status updated",
+            duration: 2000,
+        });
     };
 
     return (
@@ -217,8 +229,8 @@ export default function Currency() {
                         <LocationDetection handleChange={handleChange} data={{ generalSettings, currencies }} />
                         <s-stack paddingInlineEnd="large"><s-divider /></s-stack>
                         <PriceDisplayFormat handleChange={handleChange} data={{ generalSettings, currencies }} />
-                        <s-stack paddingInlineEnd="large"><s-divider /></s-stack>
-                        <ExchangeRates data={{ exchangeMeta }} />
+                        {/* <s-stack paddingInlineEnd="large"><s-divider /></s-stack> 
+                        <ExchangeRates data={{ exchangeMeta }} />*/}
                     </CustomSection>
                 )}
                 {/* general section end */}

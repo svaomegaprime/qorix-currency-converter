@@ -27,6 +27,6 @@ scopes = "read_themes"
 redirect_urls = [ "https://example.com/api/auth" ]
 
 [app_proxy]
-url = "/api"
-prefix = "apps"
+url = "https://example.com/api"
 subpath = "currency-converter"
+prefix = "apps"

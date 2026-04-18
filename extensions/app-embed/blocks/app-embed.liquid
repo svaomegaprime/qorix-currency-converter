@@ -1,3 +1,18 @@
+<style>
+  #currency-converter{
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 0.01s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
 {% assign appData = app.metafields.currency_converter %}
 {% assign active_currencies = appData.currency_general.value.activeCurrencies %}
 {% assign iso_currencies = appData.iso_currencies.value %}
@@ -65,6 +80,17 @@
 <script>
   window.CurrencyAppConfig = {{ app.metafields.currency_converter | json }};
   document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector("body").addEventListener("click", (event) => {
+      console.clear();
+      console.log("Click event:", event.target);
+      const dropdown = document.querySelector('#currency-converter-widget .currency-widget__dropdown');
+      const button = document.querySelector('#currency-converter-widget .currency-widget__button');
+
+      if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+        dropdown.classList.remove('active');
+        button.classList.remove('active');
+      }
+    });
     const defaultCurrency = `{{ defaultCurrency }}`.toUpperCase();
     const localStorageKey = `currencyExchangeRates${defaultCurrency}`;
     const exchangeRateApiUrl = `https://v6.exchangerate-api.com/v6/8eeeef10c87f3e890c874cbb/latest/${defaultCurrency}`;
@@ -125,11 +151,6 @@
     const placeWidget = () => {
       const trimmedSelector = typeof customSelector === 'string' ? customSelector.trim() : '';
       const shouldInjectIntoSelector = trimmedSelector.length > 0;
-
-      if (!shouldShowWidgetOnAllPages && !shouldInjectIntoSelector) {
-        hideWidget();
-        return false;
-      }
 
       showWidget();
 
@@ -526,47 +547,6 @@
       return `${formattedAmount} ${defaultCurrencyCode}`.trim();
     };
 
-    const syncOriginalPriceHoverState = (priceElement, baseAmount) => {
-      if (baseAmount === null) {
-        priceElement.removeAttribute('title');
-        return;
-      }
-
-      if (shouldShowOriginalPriceOnHover) {
-        const originalPriceLabel = `Original price: ${formatOriginalPrice(baseAmount)}`;
-        priceElement.setAttribute('title', originalPriceLabel);
-      } else {
-        priceElement.removeAttribute('title');
-      }
-    };
-
-    const refreshOriginalPriceHoverTargets = () => {
-      document.querySelectorAll('span.money').forEach((priceElement) => {
-        const baseAmount = getBaseAmountForPriceElement(priceElement);
-        syncOriginalPriceHoverState(priceElement, baseAmount);
-      });
-    };
-
-    const updateCurrencyHoverTitles = () => {
-      const buttonCurrencyName = button.getAttribute('data-currency-name') || '';
-
-      if (shouldShowCurrencyNameOnHover && buttonCurrencyName) {
-        button.setAttribute('title', buttonCurrencyName);
-      } else {
-        button.removeAttribute('title');
-      }
-
-      lists.forEach((listItem) => {
-        const currencyName = listItem.getAttribute('data-name') || '';
-
-        if (shouldShowCurrencyNameOnHover && currencyName) {
-          listItem.setAttribute('title', currencyName);
-        } else {
-          listItem.removeAttribute('title');
-        }
-      });
-    };
-
     const getBaseAmountForPriceElement = (priceElement) => {
       const storedBaseAmount = priceElement.getAttribute(convertedBaseAmountAttribute);
       const moneyFormatAmount = priceElement.getAttribute('data-amount');
@@ -605,7 +585,13 @@
 
         const convertedAmount = (baseAmount * numericRate).toFixed(2);
         priceElement.textContent = formatPrice(convertedAmount, symbol, currencyCode);
-        syncOriginalPriceHoverState(priceElement, baseAmount);
+
+        if (shouldShowOriginalPriceOnHover) {
+          const originalPriceLabel = `Original price: ${formatOriginalPrice(baseAmount)}`;
+          priceElement.setAttribute('title',originalPriceLabel);
+        } else {
+          priceElement.removeAttribute('title');
+        }
       });
     };
 
@@ -645,7 +631,6 @@
       dropdown.classList.remove('active');
       button.classList.remove('active');
 
-      updateCurrencyHoverTitles();
       updateDisplayedPrices(rate, dataSymbol, currencyCode);
 
       if (persistPreference && shouldRememberVisitorPreference) {
@@ -711,7 +696,6 @@
       await initializeExchangeRates();
       const initialCurrencyListItem = await getInitialCurrencyListItem();
       applyCurrencySelection(initialCurrencyListItem, { persistPreference: false, source: currentSelectionSource });
-      updateCurrencyHoverTitles();
       refreshOriginalPriceHoverTargets();
       priceMutationObserver.observe(document.body, { childList: true, subtree: true });
     };

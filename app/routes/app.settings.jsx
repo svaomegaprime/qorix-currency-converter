@@ -154,6 +154,10 @@ export default function Settings() {
             { method: "post" }
         );
         shopify.saveBar.hide('save-bar');
+        shopify.toast.show({
+            message: "Settings saved",
+            duration: 2000,
+        });
     };
 
     const handleClearVisitorPreferences = () => {
@@ -175,6 +179,10 @@ export default function Settings() {
             { method: "post" }
         );
         shopify.saveBar.hide('save-bar');
+        shopify.toast.show({
+            message: "Visitor preferences cleared",
+            duration: 2000,
+        });
     };
 
     const handleResetAllSettings = () => {
@@ -188,12 +196,20 @@ export default function Settings() {
             { method: "post" }
         );
         shopify.saveBar.hide('save-bar');
+        shopify.toast.show({
+            message: "All settings reset to default",
+            duration: 2000,
+        });
     };
 
     const handleDiscard = () => {
         setGeneralSettings(settingsGeneral);
         setWidgetSettings(settingsWidget);
         shopify.saveBar.hide('save-bar');
+        shopify.toast.show({
+            message: "Changes discarded",
+            duration: 2000,
+        });
     };
     const handleChange = (event) => {
         if (event.target === "general") {
@@ -261,7 +277,7 @@ export default function Settings() {
                                                 <s-stack gap="small">
                                                     <s-heading>Reset all settings</s-heading>
                                                     <s-paragraph color="subdued">
-                                                        Restores all currency, language, and widget settings to their defaults. Your active language and currency selections will be cleared.
+                                                        Restores all currency, and widget settings to their defaults. Your active currency selections will be cleared.
                                                     </s-paragraph>
                                                 </s-stack>
                                                 <s-button variant="primary" onClick={handleResetAllSettings}>

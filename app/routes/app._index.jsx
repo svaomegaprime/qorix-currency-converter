@@ -195,10 +195,10 @@ export default function Index() {
   return (
     <s-page heading={`${appName}`}>
       <s-stack direction="inline" alignItems="center" justifyContent="space-between" gap="base" paddingBlockEnd="base">
-        <Text as="h2">Welcome to {appName}</Text>
+        <Text as="h2">Welcome, {loaderData?.shop?.name}</Text>
         <s-stack direction="inline" gap="small">
           <s-button variant="primary" icon="store" href={`https://${loaderData?.shop?.primaryDomain?.host}`} target="_blank">View store</s-button>
-          <s-button variant="secondary">Your plan: Free</s-button>
+          {/* <s-button variant="secondary">Your plan: Free</s-button> */}
         </s-stack>
       </s-stack>
 

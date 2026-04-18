@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomSection from "../../../essentials/CustomSection";
 import CustomGridSection from "../../../essentials/CustomGridSection";
 
@@ -13,11 +13,6 @@ export default function ActiveCurrencies({ data, handleChange }) {
     const handleAddCurrencyInput = (e) => {
         const query = e.target.value;
         setSearchQuery(query);
-        if (query.length > 0) {
-            setIsAddCurrencyPopoverOpen(true);
-        } else {
-            setIsAddCurrencyPopoverOpen(false);
-        }
     }
     // handling open search modal & input end
 
@@ -41,6 +36,23 @@ export default function ActiveCurrencies({ data, handleChange }) {
             value: activeCurrencies.filter((item) => item !== currency)
         });
     }
+    useEffect(() => {
+        const body = document.querySelector("body");
+        const handleClickOutside = (event) => {
+            const popover = document.getElementById("add-currency-popover");
+            const searchField = document.querySelector("s-search-field");
+            if (searchField && searchField.contains(event.target)) {
+                return;
+            }
+            if (popover && !popover.contains(event.target)) {
+                setIsAddCurrencyPopoverOpen(false);
+            }
+        };
+        body.addEventListener("click", handleClickOutside);
+        return () => {
+            body.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
     // handling remove currency end
 
     return (
@@ -50,7 +62,7 @@ export default function ActiveCurrencies({ data, handleChange }) {
         >
             <CustomSection>
                 <div style={{ position: "relative" }}>
-                    <s-search-field placeholder="Add currency..." onInput={handleAddCurrencyInput} value={searchQuery} />
+                    <s-search-field placeholder="Add currency..." onInput={handleAddCurrencyInput} onFocus={()=> setIsAddCurrencyPopoverOpen(true)} value={searchQuery} />
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 6px", alignItems: "center", paddingTop: "10px" }}>
                         {activeCurrencies.map((currency) => (
                             <s-clickable-chip
