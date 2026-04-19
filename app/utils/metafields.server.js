@@ -44,7 +44,6 @@ export async function getAppInstallationMetafields(admin) {
       metafieldMap[node.key] = null;
     }
   });
-
   return { currentAppInstallationId, metafieldMap };
 }
 

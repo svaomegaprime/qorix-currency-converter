@@ -57,10 +57,8 @@ async function getThemeSettings(admin, themeId) {
   );
 
   const data = await response.json();
-
   const cleanJson = cleanJsonString(data.data.theme.files.edges[0].node.body.content);
   const parsedJson = JSON.parse(cleanJson);
-
   return parsedJson;
 }
 
@@ -71,7 +69,7 @@ function findEmbedBlock(settings, appHandle) {
   const blocks = settings?.current?.blocks || {};
   const embedBlock = Object.values(blocks).find(
     (block) =>
-      block.type.includes(`shopify://apps/currency-converter/blocks/${appHandle}`)
+      block.type.includes(`shopify://apps/qorix-currency-converter/blocks/${appHandle}`)
   );
   if (!embedBlock) return null;
   return embedBlock.disabled ? "DISABLED" : "ENABLED";

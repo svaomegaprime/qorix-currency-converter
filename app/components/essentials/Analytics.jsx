@@ -28,7 +28,7 @@ export default function Analytics({ data, onToggleCurrencyStatus, isTogglingCurr
         switchTrendLabel = `${currentWeekSwitches} switch${currentWeekSwitches > 1 ? "es" : ""} this week`;
         switchTrendTone = "success";
     }
-
+    const isCurrencyEnabled = Boolean(featureStatus.enableCurrency);
     return (
         <s-stack paddingBlockEnd="base">
             <s-query-container>
@@ -93,7 +93,11 @@ export default function Analytics({ data, onToggleCurrencyStatus, isTogglingCurr
                                                 gap="none large"
                                             >
                                                 {featureStatus.activeCurrenciesCount || 0} currencies
-                                                <Li>{featureStatus.locationDetection ? "Auto detect on" : "Auto detect off"}</Li>
+                                                {isCurrencyEnabled ? (
+                                                    <Li>Auto detect on</Li>
+                                                ) : (
+                                                    <Li>Auto detect off</Li>
+                                                )}
                                             </s-stack>
                                         </s-stack>
                                         <s-switch
