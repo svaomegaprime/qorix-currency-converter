@@ -25,7 +25,7 @@ export const loader = async ({ request }) => {
     }`,
     );
 
-    const status = await getEmbedStatusForShop(admin, "app-embed");
+    const status = await getEmbedStatusForShop(admin, "qorix-currency-converter-embed");
     console.log("status", status);
     const json = await response.json();
     return { shop: json.data.shop, embedStatus: status };

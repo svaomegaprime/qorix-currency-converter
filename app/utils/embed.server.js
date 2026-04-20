@@ -69,7 +69,7 @@ function findEmbedBlock(settings, appHandle) {
   const blocks = settings?.current?.blocks || {};
   const embedBlock = Object.values(blocks).find(
     (block) =>
-      block.type.includes(`shopify://apps/qorix-currency-converter/blocks/${appHandle}`)
+      block.type.includes(`shopify://apps/currency-converter/blocks/${appHandle}`)
   );
   if (!embedBlock) return null;
   return embedBlock.disabled ? "DISABLED" : "ENABLED";

@@ -34,7 +34,7 @@ export const loader = async ({ request }) => {
     }`,
   );
 
-  const status = await getEmbedStatusForShop(admin, "app-embed");
+  const status = await getEmbedStatusForShop(admin, "qorix-currency-converter-embed");
   const currencyFormats = await getCurrencyFormats(admin);
   const json = await response.json();
   const shopDomain = json.data.shop.myshopifyDomain;

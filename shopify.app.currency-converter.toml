@@ -5,9 +5,6 @@ name = "Currency Converter"
 application_url = "https://example.com"
 embedded = true
 
-[build]
-automatically_update_urls_on_dev = true
-
 [webhooks]
 api_version = "2026-04"
 
@@ -16,21 +13,21 @@ api_version = "2026-04"
   uri = "/webhooks/app/uninstalled"
 
   [[webhooks.subscriptions]]
+  uri = "/webhooks/app/customers_data_request"
+  compliance_topics = [ "customers/data_request" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/customers_redact"
+  compliance_topics = [ "customers/redact" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/shop_redact"
+  compliance_topics = [ "shop/redact" ]
+
+  [[webhooks.subscriptions]]
   topics = [ "app/scopes_update" ]
   uri = "/webhooks/app/scopes_update"
 
-[[webhooks.subscriptions]]
-  compliance_topics = [ "customers/redact" ]
-  uri = "/webhooks/app/customers_redact"
-  
-  [[webhooks.subscriptions]]
-  compliance_topics = [ "customers/data_request" ]
-  uri = "/webhooks/app/customers_data_request"
-  
-  [[webhooks.subscriptions]]
-  compliance_topics = [ "shop/redact" ]
-  uri = "/webhooks/app/shop_redact"
-  
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
 scopes = "read_themes"
@@ -42,3 +39,6 @@ redirect_urls = [ "https://example.com/api/auth" ]
 url = "https://example.com/api"
 subpath = "currency-converter"
 prefix = "apps"
+
+[build]
+automatically_update_urls_on_dev = true
