@@ -5,9 +5,8 @@ export const action = async ({ request }) => {
   try {
     const { payload, shop } = await authenticate.webhook(request);
 
-    console.log("Customers Data Request", payload);
-    // const storeOwnerEmail = payload.customer.email;
-    const storeOwnerEmail = "dev.sifatahmed@gmail.com";
+    const storeOwnerEmail = payload.customer.email;
+    // const storeOwnerEmail = "[EMAIL_ADDRESS]";
 
     const data = {
       message: "We are not collecting any personal data. This email is just to confirm that we received your data request and to provide you with some information about our app. We are committed to protecting your privacy and ensuring that your data is handled securely. If you have any questions or concerns, please feel free to contact us.",
@@ -20,7 +19,7 @@ export const action = async ({ request }) => {
       templateData: {
         data,
         buttonUrl: shop ? `https://${payload.shop_domain}` : "",
-        },
+      },
     });
 
 
