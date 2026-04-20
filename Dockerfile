@@ -41,7 +41,7 @@ WORKDIR /app
 RUN apk add --no-cache openssl
 
 ENV NODE_ENV=production
-EXPOSE 3000
+EXPOSE 4000
 
 # Copy package files
 COPY package.json package-lock.json* ./

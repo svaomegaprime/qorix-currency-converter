@@ -3,16 +3,18 @@ version: "3.9"
 services:
   db:
     image: postgres:15
+    container_name: currencydb
     restart: always
     env_file:
       - .env
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata_qorix_currency:/var/lib/postgresql/data
     networks:
-      - app-network
+      - qorix-currency-network
 
   app:
-    image: svaomegaprime/shopify-currency-app:latest
+    build: .
+    container_name: qorix-currency
     restart: always
     depends_on:
       - db
@@ -21,13 +23,14 @@ services:
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@currencydb:5432/${POSTGRES_DB}
       NODE_ENV: production
+      PORT: 4000
     ports:
       - "4000:4000"
     networks:
-      - app-network
+      - qorix-currency-network
 
 volumes:
-  pgdata:
+  pgdata_qorix_currency:
 
 networks:
-  app-network:
+  qorix-currency-network:
