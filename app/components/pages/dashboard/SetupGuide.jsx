@@ -137,7 +137,7 @@ export default function SetupGuide({ data, handleUpdate }) {
         }
     }, [embedStatus, isMoneyFormatUpdated, step3Completed]);
 
-    const url = `https://${loaderData?.shop?.myshopifyDomain}/admin/themes/current/editor?context=apps&template=index&activateAppId=${apiKey}/app-embed`;
+    const url = `https://${loaderData?.shop?.myshopifyDomain}/admin/themes/current/editor?context=apps&template=index&activateAppId=${apiKey}/qorix-currency-converter-embed`;
     return (
         <>
             <s-section>
