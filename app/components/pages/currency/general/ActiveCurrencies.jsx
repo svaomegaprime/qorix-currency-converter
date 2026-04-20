@@ -55,6 +55,24 @@ export default function ActiveCurrencies({ data, handleChange }) {
     }, []);
     // handling remove currency end
 
+    const handleSelectAllCurrencies = () => {
+        if (activeCurrencies.length === Object.keys(currencies).length) {
+            setActiveCurrencies([]);
+            handleChange({
+                target: "general",
+                subTarget: "activeCurrencies",
+                value: []
+            });
+        } else {
+            setActiveCurrencies(Object.keys(currencies));
+            handleChange({
+                target: "general",
+                subTarget: "activeCurrencies",
+                value: Object.keys(currencies)
+            });
+        }
+    }
+
     return (
         <CustomGridSection
             heading="Active currencies"
@@ -78,26 +96,32 @@ export default function ActiveCurrencies({ data, handleChange }) {
                         ))}
                     </div>
                     {isAddCurrencyPopoverOpen && (
-                        <div id="add-currency-popover" style={{ position: "absolute", top: "40px", left: "0", width: "calc(100% - 32px)", maxHeight: "400px", overflowY: "auto", backgroundColor: "white", border: "1px solid #d8d8d8ff", borderRadius: "10px", padding: "8px 15px", zIndex: "999" }}>
-                            {Object.entries(currencies)
-                                .filter(([key, value]) =>
-                                    value.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                    value.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                    (value.country && value.country.toLowerCase().includes(searchQuery.toLowerCase()))
-                                )
-                                .map(([key, value]) => (
-                                    activeCurrencies.includes(key) ? (
-                                        <s-stack key={key} direction="inline" justifyContent="space-between" alignItems="center">
-                                            <s-checkbox checked label={value.name} onChange={() => handleRemoveCurrency(key)} />
-                                            <s-text>{value.code}</s-text>
-                                        </s-stack>
-                                    ) : (
-                                        <s-stack key={key} direction="inline" justifyContent="space-between" alignItems="center">
-                                            <s-checkbox label={value.name} onChange={() => handleAddCurrency(key)} />
-                                            <s-text>{value.code}</s-text>
-                                        </s-stack>
+                        <div id="add-currency-popover" style={{ position: "absolute", top: "40px", left: "0", width: "calc(100% - 32px)", backgroundColor: "white", border: "1px solid #d8d8d8ff", borderRadius: "10px", padding: "8px 15px", zIndex: "999" }}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", gap: "20px", flexWrap: "nowrap"}}>
+                                <span>Select {activeCurrencies.length} of {Object.keys(currencies).length} currencies</span>
+                                <s-checkbox checked={activeCurrencies.length === Object.keys(currencies).length} onChange={handleSelectAllCurrencies} label="Select all" />
+                            </div>
+                            <div style={{maxHeight: "400px", overflowY: "auto"}}>
+                                {Object.entries(currencies)
+                                    .filter(([key, value]) =>
+                                        value.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                        value.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                        (value.country && value.country.toLowerCase().includes(searchQuery.toLowerCase()))
                                     )
-                                ))}
+                                    .map(([key, value]) => (
+                                        activeCurrencies.includes(key) ? (
+                                            <s-stack key={key} direction="inline" justifyContent="space-between" alignItems="center" paddingInlineEnd="small">
+                                                <s-checkbox checked label={value.name} onChange={() => handleRemoveCurrency(key)} />
+                                                <s-text>{value.code}</s-text>
+                                            </s-stack>
+                                        ) : (
+                                            <s-stack key={key} direction="inline" justifyContent="space-between" alignItems="center" paddingInlineEnd="small">
+                                                <s-checkbox label={value.name} onChange={() => handleAddCurrency(key)} />
+                                                <s-text>{value.code}</s-text>
+                                            </s-stack>
+                                        )
+                                    ))}
+                            </div>
                         </div>
                     )}
                 </div>

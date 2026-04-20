@@ -1,13 +1,425 @@
 {
-  "usd": {
-    "currencyCode": "USD",
+  "afn": {
+    "currencyCode": "AFN",
+    "symbol": "؋",
+    "minorUnit": 2,
+    "countries": [
+      "Afghanistan"
+    ],
+    "name": "Afghan Afghani",
+    "stateCode": "af"
+  },
+  "all": {
+    "currencyCode": "ALL",
+    "symbol": "L",
+    "minorUnit": 2,
+    "countries": [
+      "Albania"
+    ],
+    "name": "Albanian Lek",
+    "stateCode": "al"
+  },
+  "dzd": {
+    "currencyCode": "DZD",
+    "symbol": "دج",
+    "minorUnit": 2,
+    "countries": [
+      "Algeria"
+    ],
+    "name": "Algerian Dinar",
+    "stateCode": "dz"
+  },
+  "aoa": {
+    "currencyCode": "AOA",
+    "symbol": "Kz",
+    "minorUnit": 2,
+    "countries": [
+      "Angola"
+    ],
+    "name": "Angolan Kwanza",
+    "stateCode": "ao"
+  },
+  "ars": {
+    "currencyCode": "ARS",
     "symbol": "$",
     "minorUnit": 2,
     "countries": [
-      "United States"
+      "Argentina"
     ],
-    "name": "US Dollar",
-    "stateCode": "us"
+    "name": "Argentine Peso",
+    "stateCode": "ar"
+  },
+  "amd": {
+    "currencyCode": "AMD",
+    "symbol": "֏",
+    "minorUnit": 2,
+    "countries": [
+      "Armenia"
+    ],
+    "name": "Armenian Dram",
+    "stateCode": "am"
+  },
+  "aud": {
+    "currencyCode": "AUD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Australia"
+    ],
+    "name": "Australian Dollar",
+    "stateCode": "au"
+  },
+  "azn": {
+    "currencyCode": "AZN",
+    "symbol": "₼",
+    "minorUnit": 2,
+    "countries": [
+      "Azerbaijan"
+    ],
+    "name": "Azerbaijani Manat",
+    "stateCode": "az"
+  },
+  "bsd": {
+    "currencyCode": "BSD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Bahamas"
+    ],
+    "name": "Bahamian Dollar",
+    "stateCode": "bs"
+  },
+  "bhd": {
+    "currencyCode": "BHD",
+    "symbol": ".د.ب",
+    "minorUnit": 3,
+    "countries": [
+      "Bahrain"
+    ],
+    "name": "Bahraini Dinar",
+    "stateCode": "bh"
+  },
+  "bdt": {
+    "currencyCode": "BDT",
+    "symbol": "৳",
+    "minorUnit": 2,
+    "countries": [
+      "Bangladesh"
+    ],
+    "name": "Bangladeshi Taka",
+    "stateCode": "bd"
+  },
+  "bbd": {
+    "currencyCode": "BBD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Barbados"
+    ],
+    "name": "Barbadian Dollar",
+    "stateCode": "bb"
+  },
+  "byn": {
+    "currencyCode": "BYN",
+    "symbol": "Br",
+    "minorUnit": 2,
+    "countries": [
+      "Belarus"
+    ],
+    "name": "Belarusian Ruble",
+    "stateCode": "by"
+  },
+  "bzd": {
+    "currencyCode": "BZD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Belize"
+    ],
+    "name": "Belize Dollar",
+    "stateCode": "bz"
+  },
+  "xof": {
+    "currencyCode": "XOF",
+    "symbol": "CFA",
+    "minorUnit": 0,
+    "countries": [
+      "Senegal",
+      "Ivory Coast",
+      "Mali",
+      "Burkina Faso",
+      "Niger",
+      "Togo",
+      "Benin",
+      "Guinea-Bissau"
+    ],
+    "name": "CFA Franc BCEAO",
+    "stateCode": "bf"
+  },
+  "xaf": {
+    "currencyCode": "XAF",
+    "symbol": "FCFA",
+    "minorUnit": 0,
+    "countries": [
+      "Cameroon",
+      "Chad",
+      "Gabon",
+      "Central African Republic",
+      "Republic of the Congo",
+      "Equatorial Guinea"
+    ],
+    "name": "CFA Franc BEAC",
+    "stateCode": "cm"
+  },
+  "bmd": {
+    "currencyCode": "BMD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Bermuda"
+    ],
+    "name": "Bermudan Dollar",
+    "stateCode": "bm"
+  },
+  "btn": {
+    "currencyCode": "BTN",
+    "symbol": "Nu.",
+    "minorUnit": 2,
+    "countries": [
+      "Bhutan"
+    ],
+    "name": "Bhutanese Ngultrum",
+    "stateCode": "bt"
+  },
+  "bob": {
+    "currencyCode": "BOB",
+    "symbol": "Bs.",
+    "minorUnit": 2,
+    "countries": [
+      "Bolivia"
+    ],
+    "name": "Bolivian Boliviano",
+    "stateCode": "bo"
+  },
+  "bam": {
+    "currencyCode": "BAM",
+    "symbol": "KM",
+    "minorUnit": 2,
+    "countries": [
+      "Bosnia and Herzegovina"
+    ],
+    "name": "Convertible Mark",
+    "stateCode": "ba"
+  },
+  "bwp": {
+    "currencyCode": "BWP",
+    "symbol": "P",
+    "minorUnit": 2,
+    "countries": [
+      "Botswana"
+    ],
+    "name": "Botswanan Pula",
+    "stateCode": "bw"
+  },
+  "brl": {
+    "currencyCode": "BRL",
+    "symbol": "R$",
+    "minorUnit": 2,
+    "countries": [
+      "Brazil"
+    ],
+    "name": "Brazilian Real",
+    "stateCode": "br"
+  },
+  "bnd": {
+    "currencyCode": "BND",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Brunei"
+    ],
+    "name": "Brunei Dollar",
+    "stateCode": "bn"
+  },
+  "bgn": {
+    "currencyCode": "BGN",
+    "symbol": "лв",
+    "minorUnit": 2,
+    "countries": [
+      "Bulgaria"
+    ],
+    "name": "Bulgarian Lev",
+    "stateCode": "bg"
+  },
+  "bif": {
+    "currencyCode": "BIF",
+    "symbol": "FBu",
+    "minorUnit": 0,
+    "countries": [
+      "Burundi"
+    ],
+    "name": "Burundian Franc",
+    "stateCode": "bi"
+  },
+  "khr": {
+    "currencyCode": "KHR",
+    "symbol": "៛",
+    "minorUnit": 2,
+    "countries": [
+      "Cambodia"
+    ],
+    "name": "Cambodian Riel",
+    "stateCode": "kh"
+  },
+  "cad": {
+    "currencyCode": "CAD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Canada"
+    ],
+    "name": "Canadian Dollar",
+    "stateCode": "ca"
+  },
+  "clp": {
+    "currencyCode": "CLP",
+    "symbol": "$",
+    "minorUnit": 0,
+    "countries": [
+      "Chile"
+    ],
+    "name": "Chilean Peso",
+    "stateCode": "cl"
+  },
+  "cny": {
+    "currencyCode": "CNY",
+    "symbol": "¥",
+    "minorUnit": 2,
+    "countries": [
+      "China"
+    ],
+    "name": "Chinese Yuan",
+    "stateCode": "cn"
+  },
+  "cop": {
+    "currencyCode": "COP",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Colombia"
+    ],
+    "name": "Colombian Peso",
+    "stateCode": "co"
+  },
+  "kmf": {
+    "currencyCode": "KMF",
+    "symbol": "CF",
+    "minorUnit": 0,
+    "countries": [
+      "Comoros"
+    ],
+    "name": "Comorian Franc",
+    "stateCode": "km"
+  },
+  "cdf": {
+    "currencyCode": "CDF",
+    "symbol": "FC",
+    "minorUnit": 2,
+    "countries": [
+      "DR Congo"
+    ],
+    "name": "Congolese Franc",
+    "stateCode": "cd"
+  },
+  "crc": {
+    "currencyCode": "CRC",
+    "symbol": "₡",
+    "minorUnit": 2,
+    "countries": [
+      "Costa Rica"
+    ],
+    "name": "Costa Rican Colon",
+    "stateCode": "cr"
+  },
+  "hrk": {
+    "currencyCode": "HRK",
+    "symbol": "kn",
+    "minorUnit": 2,
+    "countries": [
+      "Croatia"
+    ],
+    "name": "Croatian Kuna",
+    "stateCode": "hr"
+  },
+  "cuc": {
+    "currencyCode": "CUC",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Cuba"
+    ],
+    "name": "Cuban Convertible Peso",
+    "stateCode": "cu"
+  },
+  "cup": {
+    "currencyCode": "CUP",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Cuba"
+    ],
+    "name": "Cuban Peso",
+    "stateCode": "cu"
+  },
+  "czk": {
+    "currencyCode": "CZK",
+    "symbol": "Kč",
+    "minorUnit": 2,
+    "countries": [
+      "Czech Republic"
+    ],
+    "name": "Czech Koruna",
+    "stateCode": "cz"
+  },
+  "dkk": {
+    "currencyCode": "DKK",
+    "symbol": "kr",
+    "minorUnit": 2,
+    "countries": [
+      "Denmark"
+    ],
+    "name": "Danish Krone",
+    "stateCode": "dk"
+  },
+  "dop": {
+    "currencyCode": "DOP",
+    "symbol": "RD$",
+    "minorUnit": 2,
+    "countries": [
+      "Dominican Republic"
+    ],
+    "name": "Dominican Peso",
+    "stateCode": "do"
+  },
+  "egp": {
+    "currencyCode": "EGP",
+    "symbol": "£",
+    "minorUnit": 2,
+    "countries": [
+      "Egypt"
+    ],
+    "name": "Egyptian Pound",
+    "stateCode": "eg"
+  },
+  "etb": {
+    "currencyCode": "ETB",
+    "symbol": "Br",
+    "minorUnit": 2,
+    "countries": [
+      "Ethiopia"
+    ],
+    "name": "Ethiopian Birr",
+    "stateCode": "et"
   },
   "eur": {
     "currencyCode": "EUR",
@@ -38,15 +450,105 @@
     "name": "Euro",
     "stateCode": "eu"
   },
-  "bdt": {
-    "currencyCode": "BDT",
-    "symbol": "৳",
+  "fjd": {
+    "currencyCode": "FJD",
+    "symbol": "$",
     "minorUnit": 2,
     "countries": [
-      "Bangladesh"
+      "Fiji"
     ],
-    "name": "Bangladeshi Taka",
-    "stateCode": "bd"
+    "name": "Fijian Dollar",
+    "stateCode": "fj"
+  },
+  "gmd": {
+    "currencyCode": "GMD",
+    "symbol": "D",
+    "minorUnit": 2,
+    "countries": [
+      "Gambia"
+    ],
+    "name": "Gambian Dalasi",
+    "stateCode": "gm"
+  },
+  "gel": {
+    "currencyCode": "GEL",
+    "symbol": "₾",
+    "minorUnit": 2,
+    "countries": [
+      "Georgia"
+    ],
+    "name": "Georgian Lari",
+    "stateCode": "ge"
+  },
+  "ghs": {
+    "currencyCode": "GHS",
+    "symbol": "₵",
+    "minorUnit": 2,
+    "countries": [
+      "Ghana"
+    ],
+    "name": "Ghanaian Cedi",
+    "stateCode": "gh"
+  },
+  "gtq": {
+    "currencyCode": "GTQ",
+    "symbol": "Q",
+    "minorUnit": 2,
+    "countries": [
+      "Guatemala"
+    ],
+    "name": "Guatemalan Quetzal",
+    "stateCode": "gt"
+  },
+  "gnf": {
+    "currencyCode": "GNF",
+    "symbol": "FG",
+    "minorUnit": 0,
+    "countries": [
+      "Guinea"
+    ],
+    "name": "Guinean Franc",
+    "stateCode": "gn"
+  },
+  "gyd": {
+    "currencyCode": "GYD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Guyana"
+    ],
+    "name": "Guyanese Dollar",
+    "stateCode": "gy"
+  },
+  "hkd": {
+    "currencyCode": "HKD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Hong Kong"
+    ],
+    "name": "Hong Kong Dollar",
+    "stateCode": "hk"
+  },
+  "huf": {
+    "currencyCode": "HUF",
+    "symbol": "Ft",
+    "minorUnit": 2,
+    "countries": [
+      "Hungary"
+    ],
+    "name": "Hungarian Forint",
+    "stateCode": "hu"
+  },
+  "isk": {
+    "currencyCode": "ISK",
+    "symbol": "kr",
+    "minorUnit": 0,
+    "countries": [
+      "Iceland"
+    ],
+    "name": "Icelandic Krona",
+    "stateCode": "is"
   },
   "inr": {
     "currencyCode": "INR",
@@ -68,55 +570,45 @@
     "name": "Indonesian Rupiah",
     "stateCode": "id"
   },
-  "mmk": {
-    "currencyCode": "MMK",
-    "symbol": "K",
+  "irr": {
+    "currencyCode": "IRR",
+    "symbol": "﷼",
     "minorUnit": 2,
     "countries": [
-      "Myanmar"
+      "Iran"
     ],
-    "name": "Myanmar Kyat",
-    "stateCode": "mm"
+    "name": "Iranian Rial",
+    "stateCode": "ir"
   },
-  "pkr": {
-    "currencyCode": "PKR",
-    "symbol": "₨",
-    "minorUnit": 2,
+  "iqd": {
+    "currencyCode": "IQD",
+    "symbol": "ع.د",
+    "minorUnit": 3,
     "countries": [
-      "Pakistan"
+      "Iraq"
     ],
-    "name": "Pakistani Rupee",
-    "stateCode": "pk"
+    "name": "Iraqi Dinar",
+    "stateCode": "iq"
   },
-  "lkr": {
-    "currencyCode": "LKR",
-    "symbol": "Rs",
+  "ils": {
+    "currencyCode": "ILS",
+    "symbol": "₪",
     "minorUnit": 2,
     "countries": [
-      "Sri Lanka"
+      "Israel"
     ],
-    "name": "Sri Lankan Rupee",
-    "stateCode": "lk"
+    "name": "Israeli New Shekel",
+    "stateCode": "il"
   },
-  "npr": {
-    "currencyCode": "NPR",
-    "symbol": "₨",
+  "jmd": {
+    "currencyCode": "JMD",
+    "symbol": "$",
     "minorUnit": 2,
     "countries": [
-      "Nepal"
+      "Jamaica"
     ],
-    "name": "Nepalese Rupee",
-    "stateCode": "np"
-  },
-  "cny": {
-    "currencyCode": "CNY",
-    "symbol": "¥",
-    "minorUnit": 2,
-    "countries": [
-      "China"
-    ],
-    "name": "Chinese Yuan",
-    "stateCode": "cn"
+    "name": "Jamaican Dollar",
+    "stateCode": "jm"
   },
   "jpy": {
     "currencyCode": "JPY",
@@ -128,35 +620,275 @@
     "name": "Japanese Yen",
     "stateCode": "jp"
   },
-  "krw": {
-    "currencyCode": "KRW",
-    "symbol": "₩",
-    "minorUnit": 0,
+  "jod": {
+    "currencyCode": "JOD",
+    "symbol": "د.ا",
+    "minorUnit": 3,
     "countries": [
-      "South Korea"
+      "Jordan"
     ],
-    "name": "South Korean Won",
-    "stateCode": "kr"
+    "name": "Jordanian Dinar",
+    "stateCode": "jo"
   },
-  "aud": {
-    "currencyCode": "AUD",
+  "kes": {
+    "currencyCode": "KES",
+    "symbol": "KSh",
+    "minorUnit": 2,
+    "countries": [
+      "Kenya"
+    ],
+    "name": "Kenyan Shilling",
+    "stateCode": "ke"
+  },
+  "kwd": {
+    "currencyCode": "KWD",
+    "symbol": "د.ك",
+    "minorUnit": 3,
+    "countries": [
+      "Kuwait"
+    ],
+    "name": "Kuwaiti Dinar",
+    "stateCode": "kw"
+  },
+  "kzt": {
+    "currencyCode": "KZT",
+    "symbol": "₸",
+    "minorUnit": 2,
+    "countries": [
+      "Kazakhstan"
+    ],
+    "name": "Kazakhstani Tenge",
+    "stateCode": "kz"
+  },
+  "lak": {
+    "currencyCode": "LAK",
+    "symbol": "₭",
+    "minorUnit": 2,
+    "countries": [
+      "Laos"
+    ],
+    "name": "Lao Kip",
+    "stateCode": "la"
+  },
+  "lbp": {
+    "currencyCode": "LBP",
+    "symbol": "ل.ل",
+    "minorUnit": 2,
+    "countries": [
+      "Lebanon"
+    ],
+    "name": "Lebanese Pound",
+    "stateCode": "lb"
+  },
+  "lkr": {
+    "currencyCode": "LKR",
+    "symbol": "Rs",
+    "minorUnit": 2,
+    "countries": [
+      "Sri Lanka"
+    ],
+    "name": "Sri Lankan Rupee",
+    "stateCode": "lk"
+  },
+  "lrd": {
+    "currencyCode": "LRD",
     "symbol": "$",
     "minorUnit": 2,
     "countries": [
-      "Australia"
+      "Liberia"
     ],
-    "name": "Australian Dollar",
-    "stateCode": "au"
+    "name": "Liberian Dollar",
+    "stateCode": "lr"
   },
-  "cad": {
-    "currencyCode": "CAD",
+  "lsl": {
+    "currencyCode": "LSL",
+    "symbol": "L",
+    "minorUnit": 2,
+    "countries": [
+      "Lesotho"
+    ],
+    "name": "Lesotho Loti",
+    "stateCode": "ls"
+  },
+  "lyd": {
+    "currencyCode": "LYD",
+    "symbol": "ل.د",
+    "minorUnit": 3,
+    "countries": [
+      "Libya"
+    ],
+    "name": "Libyan Dinar",
+    "stateCode": "ly"
+  },
+  "mad": {
+    "currencyCode": "MAD",
+    "symbol": "د.م.",
+    "minorUnit": 2,
+    "countries": [
+      "Morocco"
+    ],
+    "name": "Moroccan Dirham",
+    "stateCode": "ma"
+  },
+  "mdl": {
+    "currencyCode": "MDL",
+    "symbol": "L",
+    "minorUnit": 2,
+    "countries": [
+      "Moldova"
+    ],
+    "name": "Moldovan Leu",
+    "stateCode": "md"
+  },
+  "mga": {
+    "currencyCode": "MGA",
+    "symbol": "Ar",
+    "minorUnit": 2,
+    "countries": [
+      "Madagascar"
+    ],
+    "name": "Malagasy Ariary",
+    "stateCode": "mg"
+  },
+  "mkd": {
+    "currencyCode": "MKD",
+    "symbol": "ден",
+    "minorUnit": 2,
+    "countries": [
+      "North Macedonia"
+    ],
+    "name": "Macedonian Denar",
+    "stateCode": "mk"
+  },
+  "mmk": {
+    "currencyCode": "MMK",
+    "symbol": "Ks",
+    "minorUnit": 2,
+    "countries": [
+      "Myanmar"
+    ],
+    "name": "Myanmar Kyat",
+    "stateCode": "mm"
+  },
+  "mnt": {
+    "currencyCode": "MNT",
+    "symbol": "₮",
+    "minorUnit": 2,
+    "countries": [
+      "Mongolia"
+    ],
+    "name": "Mongolian Tugrik",
+    "stateCode": "mn"
+  },
+  "mur": {
+    "currencyCode": "MUR",
+    "symbol": "₨",
+    "minorUnit": 2,
+    "countries": [
+      "Mauritius"
+    ],
+    "name": "Mauritian Rupee",
+    "stateCode": "mu"
+  },
+  "mvr": {
+    "currencyCode": "MVR",
+    "symbol": "Rf",
+    "minorUnit": 2,
+    "countries": [
+      "Maldives"
+    ],
+    "name": "Maldivian Rufiyaa",
+    "stateCode": "mv"
+  },
+  "mwk": {
+    "currencyCode": "MWK",
+    "symbol": "MK",
+    "minorUnit": 2,
+    "countries": [
+      "Malawi"
+    ],
+    "name": "Malawian Kwacha",
+    "stateCode": "mw"
+  },
+  "mxn": {
+    "currencyCode": "MXN",
     "symbol": "$",
     "minorUnit": 2,
     "countries": [
-      "Canada"
+      "Mexico"
     ],
-    "name": "Canadian Dollar",
-    "stateCode": "ca"
+    "name": "Mexican Peso",
+    "stateCode": "mx"
+  },
+  "myr": {
+    "currencyCode": "MYR",
+    "symbol": "RM",
+    "minorUnit": 2,
+    "countries": [
+      "Malaysia"
+    ],
+    "name": "Malaysian Ringgit",
+    "stateCode": "my"
+  },
+  "mzn": {
+    "currencyCode": "MZN",
+    "symbol": "MT",
+    "minorUnit": 2,
+    "countries": [
+      "Mozambique"
+    ],
+    "name": "Mozambican Metical",
+    "stateCode": "mz"
+  },
+  "nad": {
+    "currencyCode": "NAD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Namibia"
+    ],
+    "name": "Namibian Dollar",
+    "stateCode": "na"
+  },
+  "ngn": {
+    "currencyCode": "NGN",
+    "symbol": "₦",
+    "minorUnit": 2,
+    "countries": [
+      "Nigeria"
+    ],
+    "name": "Nigerian Naira",
+    "stateCode": "ng"
+  },
+  "nio": {
+    "currencyCode": "NIO",
+    "symbol": "C$",
+    "minorUnit": 2,
+    "countries": [
+      "Nicaragua"
+    ],
+    "name": "Nicaraguan Cordoba",
+    "stateCode": "ni"
+  },
+  "nok": {
+    "currencyCode": "NOK",
+    "symbol": "kr",
+    "minorUnit": 2,
+    "countries": [
+      "Norway"
+    ],
+    "name": "Norwegian Krone",
+    "stateCode": "no"
+  },
+  "npr": {
+    "currencyCode": "NPR",
+    "symbol": "Rs",
+    "minorUnit": 2,
+    "countries": [
+      "Nepal"
+    ],
+    "name": "Nepalese Rupee",
+    "stateCode": "np"
   },
   "nzd": {
     "currencyCode": "NZD",
@@ -167,6 +899,336 @@
     ],
     "name": "New Zealand Dollar",
     "stateCode": "nz"
+  },
+  "omr": {
+    "currencyCode": "OMR",
+    "symbol": "ر.ع.",
+    "minorUnit": 3,
+    "countries": [
+      "Oman"
+    ],
+    "name": "Omani Rial",
+    "stateCode": "om"
+  },
+  "pab": {
+    "currencyCode": "PAB",
+    "symbol": "B/.",
+    "minorUnit": 2,
+    "countries": [
+      "Panama"
+    ],
+    "name": "Panamanian Balboa",
+    "stateCode": "pa"
+  },
+  "pen": {
+    "currencyCode": "PEN",
+    "symbol": "S/",
+    "minorUnit": 2,
+    "countries": [
+      "Peru"
+    ],
+    "name": "Peruvian Sol",
+    "stateCode": "pe"
+  },
+  "pgk": {
+    "currencyCode": "PGK",
+    "symbol": "K",
+    "minorUnit": 2,
+    "countries": [
+      "Papua New Guinea"
+    ],
+    "name": "Papua New Guinean Kina",
+    "stateCode": "pg"
+  },
+  "php": {
+    "currencyCode": "PHP",
+    "symbol": "₱",
+    "minorUnit": 2,
+    "countries": [
+      "Philippines"
+    ],
+    "name": "Philippine Peso",
+    "stateCode": "ph"
+  },
+  "pkr": {
+    "currencyCode": "PKR",
+    "symbol": "₨",
+    "minorUnit": 2,
+    "countries": [
+      "Pakistan"
+    ],
+    "name": "Pakistani Rupee",
+    "stateCode": "pk"
+  },
+  "pln": {
+    "currencyCode": "PLN",
+    "symbol": "zł",
+    "minorUnit": 2,
+    "countries": [
+      "Poland"
+    ],
+    "name": "Polish Zloty",
+    "stateCode": "pl"
+  },
+  "qar": {
+    "currencyCode": "QAR",
+    "symbol": "ر.ق",
+    "minorUnit": 2,
+    "countries": [
+      "Qatar"
+    ],
+    "name": "Qatari Rial",
+    "stateCode": "qa"
+  },
+  "ron": {
+    "currencyCode": "RON",
+    "symbol": "lei",
+    "minorUnit": 2,
+    "countries": [
+      "Romania"
+    ],
+    "name": "Romanian Leu",
+    "stateCode": "ro"
+  },
+  "rsd": {
+    "currencyCode": "RSD",
+    "symbol": "дин.",
+    "minorUnit": 2,
+    "countries": [
+      "Serbia"
+    ],
+    "name": "Serbian Dinar",
+    "stateCode": "rs"
+  },
+  "rub": {
+    "currencyCode": "RUB",
+    "symbol": "₽",
+    "minorUnit": 2,
+    "countries": [
+      "Russia"
+    ],
+    "name": "Russian Ruble",
+    "stateCode": "ru"
+  },
+  "rwf": {
+    "currencyCode": "RWF",
+    "symbol": "RF",
+    "minorUnit": 0,
+    "countries": [
+      "Rwanda"
+    ],
+    "name": "Rwandan Franc",
+    "stateCode": "rw"
+  },
+  "sar": {
+    "currencyCode": "SAR",
+    "symbol": "ر.س",
+    "minorUnit": 2,
+    "countries": [
+      "Saudi Arabia"
+    ],
+    "name": "Saudi Riyal",
+    "stateCode": "sa"
+  },
+  "scr": {
+    "currencyCode": "SCR",
+    "symbol": "₨",
+    "minorUnit": 2,
+    "countries": [
+      "Seychelles"
+    ],
+    "name": "Seychellois Rupee",
+    "stateCode": "sc"
+  },
+  "sdg": {
+    "currencyCode": "SDG",
+    "symbol": "ج.س.",
+    "minorUnit": 2,
+    "countries": [
+      "Sudan"
+    ],
+    "name": "Sudanese Pound",
+    "stateCode": "sd"
+  },
+  "sek": {
+    "currencyCode": "SEK",
+    "symbol": "kr",
+    "minorUnit": 2,
+    "countries": [
+      "Sweden"
+    ],
+    "name": "Swedish Krona",
+    "stateCode": "se"
+  },
+  "sgd": {
+    "currencyCode": "SGD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Singapore"
+    ],
+    "name": "Singapore Dollar",
+    "stateCode": "sg"
+  },
+  "syp": {
+    "currencyCode": "SYP",
+    "symbol": "£",
+    "minorUnit": 2,
+    "countries": [
+      "Syria"
+    ],
+    "name": "Syrian Pound",
+    "stateCode": "sy"
+  },
+  "thb": {
+    "currencyCode": "THB",
+    "symbol": "฿",
+    "minorUnit": 2,
+    "countries": [
+      "Thailand"
+    ],
+    "name": "Thai Baht",
+    "stateCode": "th"
+  },
+  "tnd": {
+    "currencyCode": "TND",
+    "symbol": "د.ت",
+    "minorUnit": 3,
+    "countries": [
+      "Tunisia"
+    ],
+    "name": "Tunisian Dinar",
+    "stateCode": "tn"
+  },
+  "try": {
+    "currencyCode": "TRY",
+    "symbol": "₺",
+    "minorUnit": 2,
+    "countries": [
+      "Turkey"
+    ],
+    "name": "Turkish Lira",
+    "stateCode": "tr"
+  },
+  "twd": {
+    "currencyCode": "TWD",
+    "symbol": "NT$",
+    "minorUnit": 2,
+    "countries": [
+      "Taiwan"
+    ],
+    "name": "New Taiwan Dollar",
+    "stateCode": "tw"
+  },
+  "tzs": {
+    "currencyCode": "TZS",
+    "symbol": "TSh",
+    "minorUnit": 2,
+    "countries": [
+      "Tanzania"
+    ],
+    "name": "Tanzanian Shilling",
+    "stateCode": "tz"
+  },
+  "uah": {
+    "currencyCode": "UAH",
+    "symbol": "₴",
+    "minorUnit": 2,
+    "countries": [
+      "Ukraine"
+    ],
+    "name": "Ukrainian Hryvnia",
+    "stateCode": "ua"
+  },
+  "ugx": {
+    "currencyCode": "UGX",
+    "symbol": "USh",
+    "minorUnit": 0,
+    "countries": [
+      "Uganda"
+    ],
+    "name": "Ugandan Shilling",
+    "stateCode": "ug"
+  },
+  "usd": {
+    "currencyCode": "USD",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "United States"
+    ],
+    "name": "US Dollar",
+    "stateCode": "us"
+  },
+  "uyu": {
+    "currencyCode": "UYU",
+    "symbol": "$",
+    "minorUnit": 2,
+    "countries": [
+      "Uruguay"
+    ],
+    "name": "Uruguayan Peso",
+    "stateCode": "uy"
+  },
+  "uzs": {
+    "currencyCode": "UZS",
+    "symbol": "so'm",
+    "minorUnit": 2,
+    "countries": [
+      "Uzbekistan"
+    ],
+    "name": "Uzbekistan Som",
+    "stateCode": "uz"
+  },
+  "vef": {
+    "currencyCode": "VEF",
+    "symbol": "Bs",
+    "minorUnit": 2,
+    "countries": [
+      "Venezuela"
+    ],
+    "name": "Venezuelan Bolivar",
+    "stateCode": "ve"
+  },
+  "vnd": {
+    "currencyCode": "VND",
+    "symbol": "₫",
+    "minorUnit": 0,
+    "countries": [
+      "Vietnam"
+    ],
+    "name": "Vietnamese Dong",
+    "stateCode": "vn"
+  },
+  "yer": {
+    "currencyCode": "YER",
+    "symbol": "﷼",
+    "minorUnit": 2,
+    "countries": [
+      "Yemen"
+    ],
+    "name": "Yemeni Rial",
+    "stateCode": "ye"
+  },
+  "zar": {
+    "currencyCode": "ZAR",
+    "symbol": "R",
+    "minorUnit": 2,
+    "countries": [
+      "South Africa"
+    ],
+    "name": "South African Rand",
+    "stateCode": "za"
+  },
+  "krw": {
+    "currencyCode": "KRW",
+    "symbol": "₩",
+    "minorUnit": 0,
+    "countries": [
+      "South Korea"
+    ],
+    "name": "South Korean Won",
+    "stateCode": "kr"
   },
   "gbp": {
     "currencyCode": "GBP",
@@ -189,96 +1251,6 @@
     "name": "Swiss Franc",
     "stateCode": "ch"
   },
-  "sek": {
-    "currencyCode": "SEK",
-    "symbol": "kr",
-    "minorUnit": 2,
-    "countries": [
-      "Sweden"
-    ],
-    "name": "Swedish Krona",
-    "stateCode": "se"
-  },
-  "nok": {
-    "currencyCode": "NOK",
-    "symbol": "kr",
-    "minorUnit": 2,
-    "countries": [
-      "Norway"
-    ],
-    "name": "Norwegian Krone",
-    "stateCode": "no"
-  },
-  "dkk": {
-    "currencyCode": "DKK",
-    "symbol": "kr",
-    "minorUnit": 2,
-    "countries": [
-      "Denmark"
-    ],
-    "name": "Danish Krone",
-    "stateCode": "dk"
-  },
-  "hkd": {
-    "currencyCode": "HKD",
-    "symbol": "$",
-    "minorUnit": 2,
-    "countries": [
-      "Hong Kong"
-    ],
-    "name": "Hong Kong Dollar",
-    "stateCode": "hk"
-  },
-  "rub": {
-    "currencyCode": "RUB",
-    "symbol": "₽",
-    "minorUnit": 2,
-    "countries": [
-      "Russia"
-    ],
-    "name": "Russian Ruble",
-    "stateCode": "ru"
-  },
-  "try": {
-    "currencyCode": "TRY",
-    "symbol": "₺",
-    "minorUnit": 2,
-    "countries": [
-      "Turkey"
-    ],
-    "name": "Turkish Lira",
-    "stateCode": "tr"
-  },
-  "pln": {
-    "currencyCode": "PLN",
-    "symbol": "zł",
-    "minorUnit": 2,
-    "countries": [
-      "Poland"
-    ],
-    "name": "Polish Zloty",
-    "stateCode": "pl"
-  },
-  "czk": {
-    "currencyCode": "CZK",
-    "symbol": "Kč",
-    "minorUnit": 2,
-    "countries": [
-      "Czech Republic"
-    ],
-    "name": "Czech Koruna",
-    "stateCode": "cz"
-  },
-  "huf": {
-    "currencyCode": "HUF",
-    "symbol": "Ft",
-    "minorUnit": 2,
-    "countries": [
-      "Hungary"
-    ],
-    "name": "Hungarian Forint",
-    "stateCode": "hu"
-  },
   "aed": {
     "currencyCode": "AED",
     "symbol": "د.إ",
@@ -288,228 +1260,6 @@
     ],
     "name": "UAE Dirham",
     "stateCode": "ae"
-  },
-  "sar": {
-    "currencyCode": "SAR",
-    "symbol": "﷼",
-    "minorUnit": 2,
-    "countries": [
-      "Saudi Arabia"
-    ],
-    "name": "Saudi Riyal",
-    "stateCode": "sa"
-  },
-  "qar": {
-    "currencyCode": "QAR",
-    "symbol": "﷼",
-    "minorUnit": 2,
-    "countries": [
-      "Qatar"
-    ],
-    "name": "Qatari Riyal",
-    "stateCode": "qa"
-  },
-  "kwd": {
-    "currencyCode": "KWD",
-    "symbol": "د.ك",
-    "minorUnit": 3,
-    "countries": [
-      "Kuwait"
-    ],
-    "name": "Kuwaiti Dinar",
-    "stateCode": "kw"
-  },
-  "bhd": {
-    "currencyCode": "BHD",
-    "symbol": ".د.ب",
-    "minorUnit": 3,
-    "countries": [
-      "Bahrain"
-    ],
-    "name": "Bahraini Dinar",
-    "stateCode": "bh"
-  },
-  "omr": {
-    "currencyCode": "OMR",
-    "symbol": "﷼",
-    "minorUnit": 3,
-    "countries": [
-      "Oman"
-    ],
-    "name": "Omani Rial",
-    "stateCode": "om"
-  },
-  "zar": {
-    "currencyCode": "ZAR",
-    "symbol": "R",
-    "minorUnit": 2,
-    "countries": [
-      "South Africa"
-    ],
-    "name": "South African Rand",
-    "stateCode": "za"
-  },
-  "myr": {
-    "currencyCode": "MYR",
-    "symbol": "RM",
-    "minorUnit": 2,
-    "countries": [
-      "Malaysia"
-    ],
-    "name": "Malaysian Ringgit",
-    "stateCode": "my"
-  },
-  "ngn": {
-    "currencyCode": "NGN",
-    "symbol": "₦",
-    "minorUnit": 2,
-    "countries": [
-      "Nigeria"
-    ],
-    "name": "Nigerian Naira",
-    "stateCode": "ng"
-  },
-  "kes": {
-    "currencyCode": "KES",
-    "symbol": "KSh",
-    "minorUnit": 2,
-    "countries": [
-      "Kenya"
-    ],
-    "name": "Kenyan Shilling",
-    "stateCode": "ke"
-  },
-  "egp": {
-    "currencyCode": "EGP",
-    "symbol": "£",
-    "minorUnit": 2,
-    "countries": [
-      "Egypt"
-    ],
-    "name": "Egyptian Pound",
-    "stateCode": "eg"
-  },
-  "brl": {
-    "currencyCode": "BRL",
-    "symbol": "R$",
-    "minorUnit": 2,
-    "countries": [
-      "Brazil"
-    ],
-    "name": "Brazilian Real",
-    "stateCode": "br"
-  },
-  "mxn": {
-    "currencyCode": "MXN",
-    "symbol": "$",
-    "minorUnit": 2,
-    "countries": [
-      "Mexico"
-    ],
-    "name": "Mexican Peso",
-    "stateCode": "mx"
-  },
-  "ars": {
-    "currencyCode": "ARS",
-    "symbol": "$",
-    "minorUnit": 2,
-    "countries": [
-      "Argentina"
-    ],
-    "name": "Argentine Peso",
-    "stateCode": "ar"
-  },
-  "clp": {
-    "currencyCode": "CLP",
-    "symbol": "$",
-    "minorUnit": 0,
-    "countries": [
-      "Chile"
-    ],
-    "name": "Chilean Peso",
-    "stateCode": "cl"
-  },
-  "cop": {
-    "currencyCode": "COP",
-    "symbol": "$",
-    "minorUnit": 2,
-    "countries": [
-      "Colombia"
-    ],
-    "name": "Colombian Peso",
-    "stateCode": "co"
-  },
-  "pen": {
-    "currencyCode": "PEN",
-    "symbol": "S/",
-    "minorUnit": 2,
-    "countries": [
-      "Peru"
-    ],
-    "name": "Peruvian Sol",
-    "stateCode": "pe"
-  },
-  "php": {
-    "currencyCode": "PHP",
-    "symbol": "â‚±",
-    "minorUnit": 2,
-    "countries": [
-      "Philippines"
-    ],
-    "name": "Philippine Peso",
-    "stateCode": "ph"
-  },
-  "sgd": {
-    "currencyCode": "SGD",
-    "symbol": "$",
-    "minorUnit": 2,
-    "countries": [
-      "Singapore"
-    ],
-    "name": "Singapore Dollar",
-    "stateCode": "sg"
-  },
-  "thb": {
-    "currencyCode": "THB",
-    "symbol": "à¸¿",
-    "minorUnit": 2,
-    "countries": [
-      "Thailand"
-    ],
-    "name": "Thai Baht",
-    "stateCode": "th"
-  },
-  "xof": {
-    "currencyCode": "XOF",
-    "symbol": "CFA",
-    "minorUnit": 0,
-    "countries": [
-      "Senegal",
-      "Ivory Coast",
-      "Mali",
-      "Burkina Faso",
-      "Niger",
-      "Togo",
-      "Benin",
-      "Guinea-Bissau"
-    ],
-    "name": "West African CFA Franc",
-    "stateCode": "bf"
-  },
-  "xaf": {
-    "currencyCode": "XAF",
-    "symbol": "CFA",
-    "minorUnit": 0,
-    "countries": [
-      "Cameroon",
-      "Chad",
-      "Gabon",
-      "Central African Republic",
-      "Republic of the Congo",
-      "Equatorial Guinea"
-    ],
-    "name": "Central African CFA Franc",
-    "stateCode": "cm"
   },
   "xcd": {
     "currencyCode": "XCD",

@@ -1,4 +1,4 @@
-import { useRouteLoaderData, useNavigation, useLoaderData, useFetcher } from "react-router";
+import { useRouteLoaderData, useNavigation, useLoaderData, useFetcher, useActionData } from "react-router";
 import { Text } from "@shopify/polaris";
 import { useEffect, useState } from "react";
 import Loader from "../components/essentials/Loader";
@@ -13,13 +13,17 @@ import { authenticate } from "../shopify.server";
 import {
     defaultCurrencyDesign,
     defaultCurrencyGeneral,
-    defaultSettingsGeneral,
     defaultSettingsWidget,
 } from "../utils/default-settings";
+import { defaultSettingsGeneral } from "../utils/store-default.server";
 import { ensureAppMetafields } from "../utils/metafields.server";
+import { getCurrencyFormats } from "../utils/currency.server";
 
 export const loader = async ({ request }) => {
     const { admin } = await authenticate.admin(request);
+    
+    const currencyFormats = await getCurrencyFormats(admin);
+
     const { currentAppInstallationId, metafieldMap } = await ensureAppMetafields(admin, [
         "settings_general",
         "settings_widget"
@@ -43,9 +47,10 @@ export const loader = async ({ request }) => {
     return {
         shop,
         currentAppInstallationId,
-        settingsGeneral: metafieldMap.settings_general || defaultSettingsGeneral,
+        settingsGeneral: metafieldMap.settings_general || await defaultSettingsGeneral(admin),
         settingsWidget: metafieldMap.settings_widget || defaultSettingsWidget,
-        exchangeMeta: metafieldMap.exchange_meta || null
+        exchangeMeta: metafieldMap.exchange_meta || null,
+        currencyFormats
     };
 };
 
@@ -59,14 +64,16 @@ export const action = async ({ request }) => {
     const actionType = formData.get("actionType");
     const metafields = [];
 
+    const defaultGeneralSettings = await defaultSettingsGeneral(admin);
     if (actionType === "reset_all_settings" && currentAppInstallationId) {
+
         metafields.push(
             {
                 ownerId: currentAppInstallationId,
                 namespace: "currency_converter",
                 key: "settings_general",
                 type: "json",
-                value: JSON.stringify(defaultSettingsGeneral)
+                value: JSON.stringify(defaultGeneralSettings)
             },
             {
                 ownerId: currentAppInstallationId,
@@ -126,13 +133,14 @@ export const action = async ({ request }) => {
         { variables: { metafields } }
     );
 
-    return await response.json();
+    return defaultGeneralSettings;
 };
 
 export default function Settings() {
     const { appName } = useRouteLoaderData("routes/app");
     const loaderData = useLoaderData();
-    const { shop, currentAppInstallationId, settingsGeneral, settingsWidget, exchangeMeta } = loaderData;
+    const actionData = useActionData();
+    const { shop, currentAppInstallationId, settingsGeneral, settingsWidget, exchangeMeta, currencyFormats } = loaderData;
     const fetcher = useFetcher();
     const [activeTab, setActiveTab] = useState("general");
     const shopify = useAppBridge();
@@ -186,8 +194,6 @@ export default function Settings() {
     };
 
     const handleResetAllSettings = () => {
-        setGeneralSettings(defaultSettingsGeneral);
-        setWidgetSettings(defaultSettingsWidget);
         fetcher.submit(
             {
                 actionType: "reset_all_settings",
@@ -201,6 +207,13 @@ export default function Settings() {
             duration: 2000,
         });
     };
+
+    useEffect(() => {
+        if(fetcher.data) {
+            setGeneralSettings(fetcher.data);
+            setWidgetSettings(defaultSettingsWidget);
+        }
+    }, [fetcher.data]);
 
     const handleDiscard = () => {
         setGeneralSettings(settingsGeneral);
@@ -229,6 +242,7 @@ export default function Settings() {
         // Let the user know changes have been made and need saving
         showSaveBar();
     }
+    const storeDefaultCurrency = currencyFormats?.shop?.currencyCode?.toLowerCase();
     return (
         <s-page heading={`${appName}`}>
             <SaveBar id="save-bar">
@@ -257,7 +271,7 @@ export default function Settings() {
                 {/* general section start */}
                 {activeTab === "general" && (
                     <CustomSection padding="none">
-                        <StoreDefaults data={{ generalSettings }} handleChange={handleChange} />
+                        <StoreDefaults data={{ generalSettings, storeDefaultCurrency }} handleChange={handleChange} />
                         <s-stack paddingInlineEnd="large"><s-divider /></s-stack>
                         <AppBehavior data={{ generalSettings }} handleChange={handleChange} />
                         <s-stack paddingInlineEnd="large"><s-divider /></s-stack>

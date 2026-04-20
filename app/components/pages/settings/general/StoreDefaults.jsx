@@ -1,10 +1,10 @@
 import CustomGridSection from "../../../essentials/CustomGridSection";
 import CustomSection from "../../../essentials/CustomSection";
 import { useState } from "react";
-import selectedCurrencies from "../../../../assets/data/selected_currencies.json";
 import currencies from "../../../../assets/data/currencies.json";
 export default function StoreDefaults({ data, handleChange }) {
     const { storeDefaults } = data.generalSettings;
+    const storeDefaultCurrency = data.storeDefaultCurrency;
     const [currency, setCurrency] = useState(storeDefaults.currency);
 
     const handleCurrency = (event) => {
@@ -32,11 +32,7 @@ export default function StoreDefaults({ data, handleChange }) {
                         </s-paragraph>
                     </s-stack>
                     <s-select value={currency} onChange={handleCurrency}>
-                        {selectedCurrencies.map((currency) => (
-                            <s-option key={currency} value={currency}>
-                                {currencies[currency].name} ({currencies[currency].code})
-                            </s-option>
-                        ))}
+                        <s-option value={storeDefaultCurrency}>({currencies[storeDefaultCurrency]?.symbol}) {currencies[storeDefaultCurrency]?.name} (Store default)</s-option>
                     </s-select>
                 </s-stack>
             </CustomSection>

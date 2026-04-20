@@ -1,0 +1,302 @@
+{
+    "usd": {
+        "country": "United States",
+        "name": "US Dollar",
+        "symbol": "$",
+        "code": "USD"
+    },
+    "eur": {
+        "country": "Europe",
+        "name": "Euro",
+        "symbol": "€",
+        "code": "EUR"
+    },
+    "gbp": {
+        "country": "United Kingdom",
+        "name": "British Pound",
+        "symbol": "£",
+        "code": "GBP"
+    },
+    "jpy": {
+        "country": "Japan",
+        "name": "Japanese Yen",
+        "symbol": "¥",
+        "code": "JPY"
+    },
+    "cny": {
+        "country": "China",
+        "name": "Chinese Yuan",
+        "symbol": "¥",
+        "code": "CNY"
+    },
+    "inr": {
+        "country": "India",
+        "name": "Indian Rupee",
+        "symbol": "₹",
+        "code": "INR"
+    },
+    "bdt": {
+        "country": "Bangladesh",
+        "name": "Bangladeshi Taka",
+        "symbol": "৳",
+        "code": "BDT"
+    },
+    "aud": {
+        "country": "Australia",
+        "name": "Australian Dollar",
+        "symbol": "$",
+        "code": "AUD"
+    },
+    "cad": {
+        "country": "Canada",
+        "name": "Canadian Dollar",
+        "symbol": "$",
+        "code": "CAD"
+    },
+    "chf": {
+        "country": "Switzerland",
+        "name": "Swiss Franc",
+        "symbol": "CHF",
+        "code": "CHF"
+    },
+    "dkk": {
+        "country": "Denmark",
+        "name": "Danish Krone",
+        "symbol": "kr",
+        "code": "DKK"
+    },
+    "hkd": {
+        "country": "Hong Kong",
+        "name": "Hong Kong Dollar",
+        "symbol": "$",
+        "code": "HKD"
+    },
+    "idr": {
+        "country": "Indonesia",
+        "name": "Indonesian Rupiah",
+        "symbol": "Rp",
+        "code": "IDR"
+    },
+    "krw": {
+        "country": "South Korea",
+        "name": "South Korean Won",
+        "symbol": "₩",
+        "code": "KRW"
+    },
+    "myr": {
+        "country": "Malaysia",
+        "name": "Malaysian Ringgit",
+        "symbol": "RM",
+        "code": "MYR"
+    },
+    "nok": {
+        "country": "Norway",
+        "name": "Norwegian Krone",
+        "symbol": "kr",
+        "code": "NOK"
+    },
+    "nzd": {
+        "country": "New Zealand",
+        "name": "New Zealand Dollar",
+        "symbol": "$",
+        "code": "NZD"
+    },
+    "php": {
+        "country": "Philippines",
+        "name": "Philippine Peso",
+        "symbol": "₱",
+        "code": "PHP"
+    },
+    "sek": {
+        "country": "Sweden",
+        "name": "Swedish Krona",
+        "symbol": "kr",
+        "code": "SEK"
+    },
+    "sgd": {
+        "country": "Singapore",
+        "name": "Singapore Dollar",
+        "symbol": "$",
+        "code": "SGD"
+    },
+    "thb": {
+        "country": "Thailand",
+        "name": "Thai Baht",
+        "symbol": "฿",
+        "code": "THB"
+    },
+    "try": {
+        "country": "Turkey",
+        "name": "Turkish Lira",
+        "symbol": "₺",
+        "code": "TRY"
+    },
+    "zar": {
+        "country": "South Africa",
+        "name": "South African Rand",
+        "symbol": "R",
+        "code": "ZAR"
+    },
+    "rub": {
+        "country": "Russia",
+        "name": "Russian Ruble",
+        "symbol": "₽",
+        "code": "RUB"
+    },
+    "pln": {
+        "country": "Poland",
+        "name": "Polish Złoty",
+        "symbol": "zł",
+        "code": "PLN"
+    },
+    "czk": {
+        "country": "Czech Republic",
+        "name": "Czech Koruna",
+        "symbol": "Kč",
+        "code": "CZK"
+    },
+    "huf": {
+        "country": "Hungary",
+        "name": "Hungarian Forint",
+        "symbol": "Ft",
+        "code": "HUF"
+    },
+    "aed": {
+        "country": "United Arab Emirates",
+        "name": "UAE Dirham",
+        "symbol": "د.إ",
+        "code": "AED"
+    },
+    "sar": {
+        "country": "Saudi Arabia",
+        "name": "Saudi Riyal",
+        "symbol": "﷼",
+        "code": "SAR"
+    },
+    "qar": {
+        "country": "Qatar",
+        "name": "Qatari Riyal",
+        "symbol": "﷼",
+        "code": "QAR"
+    },
+    "kwd": {
+        "country": "Kuwait",
+        "name": "Kuwaiti Dinar",
+        "symbol": "د.ك",
+        "code": "KWD"
+    },
+    "bhd": {
+        "country": "Bahrain",
+        "name": "Bahraini Dinar",
+        "symbol": ".د.ب",
+        "code": "BHD"
+    },
+    "omr": {
+        "country": "Oman",
+        "name": "Omani Rial",
+        "symbol": "﷼",
+        "code": "OMR"
+    },
+    "ngn": {
+        "country": "Nigeria",
+        "name": "Nigerian Naira",
+        "symbol": "₦",
+        "code": "NGN"
+    },
+    "kes": {
+        "country": "Kenya",
+        "name": "Kenyan Shilling",
+        "symbol": "KSh",
+        "code": "KES"
+    },
+    "egp": {
+        "country": "Egypt",
+        "name": "Egyptian Pound",
+        "symbol": "£",
+        "code": "EGP"
+    },
+    "brl": {
+        "country": "Brazil",
+        "name": "Brazilian Real",
+        "symbol": "R$",
+        "code": "BRL"
+    },
+    "mxn": {
+        "country": "Mexico",
+        "name": "Mexican Peso",
+        "symbol": "$",
+        "code": "MXN"
+    },
+    "ars": {
+        "country": "Argentina",
+        "name": "Argentine Peso",
+        "symbol": "$",
+        "code": "ARS"
+    },
+    "clp": {
+        "country": "Chile",
+        "name": "Chilean Peso",
+        "symbol": "$",
+        "code": "CLP"
+    },
+    "cop": {
+        "country": "Colombia",
+        "name": "Colombian Peso",
+        "symbol": "$",
+        "code": "COP"
+    },
+    "pen": {
+        "country": "Peru",
+        "name": "Peruvian Sol",
+        "symbol": "S/",
+        "code": "PEN"
+    },
+    "pkr": {
+        "country": "Pakistan",
+        "name": "Pakistani Rupee",
+        "symbol": "₨",
+        "code": "PKR"
+    },
+    "lkr": {
+        "country": "Sri Lanka",
+        "name": "Sri Lankan Rupee",
+        "symbol": "Rs",
+        "code": "LKR"
+    },
+    "npr": {
+        "country": "Nepal",
+        "name": "Nepalese Rupee",
+        "symbol": "₨",
+        "code": "NPR"
+    },
+    "mmk": {
+        "country": "Myanmar",
+        "name": "Myanmar Kyat",
+        "symbol": "K",
+        "code": "MMK"
+    },
+    "xof": {
+        "country": "West Africa",
+        "name": "West African CFA Franc",
+        "symbol": "CFA",
+        "code": "XOF"
+    },
+    "xaf": {
+        "country": "Central Africa",
+        "name": "Central African CFA Franc",
+        "symbol": "CFA",
+        "code": "XAF"
+    },
+    "xcd": {
+        "country": "East Caribbean",
+        "name": "East Caribbean Dollar",
+        "symbol": "$",
+        "code": "XCD"
+    },
+    "xpf": {
+        "country": "French Pacific",
+        "name": "CFP Franc",
+        "symbol": "₣",
+        "code": "XPF"
+    }
+}

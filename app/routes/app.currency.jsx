@@ -17,8 +17,8 @@ import { authenticate } from "../shopify.server";
 import {
     defaultCurrencyDesign,
     defaultCurrencyGeneral,
-    defaultSettingsGeneral,
 } from "../utils/default-settings";
+import { defaultSettingsGeneral } from "../utils/store-default.server";
 import { ensureAppMetafields } from "../utils/metafields.server";
 
 export const loader = async ({ request }) => {
@@ -33,7 +33,7 @@ export const loader = async ({ request }) => {
         currentAppInstallationId,
         currencyGeneral: metafieldMap.currency_general || defaultCurrencyGeneral,
         currencyDesign: metafieldMap.currency_design || defaultCurrencyDesign,
-        settingsGeneral: metafieldMap.settings_general || defaultSettingsGeneral,
+        settingsGeneral: metafieldMap.settings_general || await defaultSettingsGeneral(admin),
         exchangeMeta: metafieldMap.exchange_meta || null
     };
 };
@@ -178,7 +178,6 @@ export default function Currency() {
             duration: 2000,
         });
     };
-
     return (
         <s-page heading={`${appName}`}>
             <SaveBar id="save-bar">

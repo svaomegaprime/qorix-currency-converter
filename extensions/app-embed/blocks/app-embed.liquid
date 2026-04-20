@@ -81,8 +81,6 @@
   window.CurrencyAppConfig = {{ app.metafields.currency_converter | json }};
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("body").addEventListener("click", (event) => {
-      console.clear();
-      console.log("Click event:", event.target);
       const dropdown = document.querySelector('#currency-converter-widget .currency-widget__dropdown');
       const button = document.querySelector('#currency-converter-widget .currency-widget__button');
 
@@ -583,8 +581,15 @@
           return;
         }
 
+        {% comment %} sifat ........ {% endcomment %}
         const convertedAmount = (baseAmount * numericRate).toFixed(2);
-        priceElement.textContent = formatPrice(convertedAmount, symbol, currencyCode);
+        var priceCalculated = formatPrice(convertedAmount, symbol, currencyCode);
+        if(priceCalculated.charAt(0) === '.'){
+          priceCalculated = priceCalculated.slice(1);
+          priceElement.textContent = priceCalculated;
+        }else{
+          priceElement.textContent = priceCalculated;
+        }
 
         if (shouldShowOriginalPriceOnHover) {
           const originalPriceLabel = `Original price: ${formatOriginalPrice(baseAmount)}`;

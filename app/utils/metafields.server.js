@@ -2,17 +2,32 @@ import isoCurrencies from "../assets/data/iso_currency.json";
 import {
   defaultCurrencyDesign,
   defaultCurrencyGeneral,
-  defaultSettingsGeneral,
   defaultSettingsWidget,
 } from "./default-settings";
+import { defaultSettingsGeneral } from "./store-default.server";
 
-const DEFAULT_APP_METAFIELDS = {
-  settings_general: defaultSettingsGeneral,
+const DEFAULT_APP_METAFIELD_KEYS = [
+  "settings_general",
+  "settings_widget",
+  "currency_general",
+  "currency_design",
+  "iso_currencies",
+];
+
+const STATIC_DEFAULT_APP_METAFIELDS = {
   settings_widget: defaultSettingsWidget,
   currency_general: defaultCurrencyGeneral,
   currency_design: defaultCurrencyDesign,
   iso_currencies: isoCurrencies,
 };
+
+async function getDefaultMetafieldValue(admin, key) {
+  if (key === "settings_general") {
+    return await defaultSettingsGeneral(admin);
+  }
+
+  return STATIC_DEFAULT_APP_METAFIELDS[key];
+}
 
 export async function getAppInstallationMetafields(admin) {
   const response = await admin.graphql(
@@ -47,17 +62,29 @@ export async function getAppInstallationMetafields(admin) {
   return { currentAppInstallationId, metafieldMap };
 }
 
-export async function ensureAppMetafields(admin, requiredKeys = Object.keys(DEFAULT_APP_METAFIELDS)) {
+export async function ensureAppMetafields(admin, requiredKeys = DEFAULT_APP_METAFIELD_KEYS) {
   const { currentAppInstallationId, metafieldMap } = await getAppInstallationMetafields(admin);
   const missingMetafields = requiredKeys.filter((key) => metafieldMap[key] == null);
 
   if (missingMetafields.length) {
-    const metafieldsToSet = missingMetafields.map((key) => ({
+    const resolvedMetafields = await Promise.all(
+      missingMetafields.map(async (key) => {
+        const value = await getDefaultMetafieldValue(admin, key);
+
+        if (typeof value === "undefined") {
+          throw new Error(`No default app metafield configured for key "${key}"`);
+        }
+
+        return { key, value };
+      })
+    );
+
+    const metafieldsToSet = resolvedMetafields.map(({ key, value }) => ({
       ownerId: currentAppInstallationId,
       namespace: "currency_converter",
       key,
       type: "json",
-      value: JSON.stringify(DEFAULT_APP_METAFIELDS[key]),
+      value: JSON.stringify(value),
     }));
 
     await admin.graphql(
@@ -73,8 +100,8 @@ export async function ensureAppMetafields(admin, requiredKeys = Object.keys(DEFA
       { variables: { metafields: metafieldsToSet } }
     );
 
-    missingMetafields.forEach((key) => {
-      metafieldMap[key] = DEFAULT_APP_METAFIELDS[key];
+    resolvedMetafields.forEach(({ key, value }) => {
+      metafieldMap[key] = value;
     });
   }
 

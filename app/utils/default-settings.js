@@ -1,14 +1,3 @@
-export const defaultSettingsGeneral = {
-  storeDefaults: { currency: "usd" },
-  appBehavior: {
-    enableCurrency: true,
-    enableVisitorPreference: true,
-    enableWidgetOnAllPages: true,
-    exchangeRateFrequency: "12_hours",
-    visitorPreferenceVersion: 1,
-  },
-};
-
 export const defaultSettingsWidget = {
   widgetType: "combined",
   position: "bottom_left",
@@ -16,7 +5,7 @@ export const defaultSettingsWidget = {
   offsetFromEdge: { horizontal: 0, vertical: 0 },
   themeCustomisation: {
     backgroundColor: "#ffffff",
-    hoverBackground: "#B8B8B8",
+    hoverBackground: "#e7e7e7",
     textColor: "#303030",
     borderColor: "#B8B8B8",
     hoverColor: "#202020",

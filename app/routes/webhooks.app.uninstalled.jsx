@@ -8,7 +8,6 @@ export const action = async ({ request }) => {
 
   if (session) {
     await db.session.deleteMany({ where: { shop } });
-    await db.AnalyticsEvent.deleteMany({ where: { shop } });
   }
 
   return new Response();
