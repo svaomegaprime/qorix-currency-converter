@@ -154,7 +154,7 @@ export default function Index() {
   // default loaders data end
 
   const [isAppEnabled, setIsAppEnabled] = useState(loaderData.embedStatus == "ENABLED");
-  const activationUrl = `https://${loaderData?.shop?.myshopifyDomain}/admin/themes/current/editor?context=apps&template=index&activateAppId=${apiKey}/app-embed`;
+  const activationUrl = `https://${loaderData?.shop?.myshopifyDomain}/admin/themes/current/editor?context=apps&template=index&activateAppId=${apiKey}/qorix-currency-converter-embed`;
   const optimisticEnableCurrency = toggleFetcher.formData
     ? toggleFetcher.formData.get("enableCurrency") === "true"
     : loaderData.featureStatus.enableCurrency;
