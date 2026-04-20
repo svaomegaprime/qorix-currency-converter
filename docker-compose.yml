@@ -34,3 +34,5 @@ volumes:
 
 networks:
   qorix-currency-network:
+    external: true
+    name: currency-net
