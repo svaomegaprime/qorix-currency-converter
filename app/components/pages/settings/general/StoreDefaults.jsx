@@ -21,7 +21,7 @@ export default function StoreDefaults({ data, handleChange }) {
     return (
         <CustomGridSection
             heading="Store defaults"
-            description="Base language and currency your store is built on"
+            description="Base currency your store is built on"
         >
             <CustomSection>
                 <s-stack gap="small">

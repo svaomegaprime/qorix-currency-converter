@@ -307,7 +307,7 @@ export default function Settings() {
                                                 <s-stack gap="small">
                                                     <s-heading>Clear visitor preference cookies</s-heading>
                                                     <s-paragraph color="subdued">
-                                                        Removes all saved currency and language preferences from visitor browsers on next page load.
+                                                        Removes all saved currency preferences from visitor browsers on next page load.
                                                     </s-paragraph>
                                                 </s-stack>
                                                 <s-button variant="primary" onClick={handleClearVisitorPreferences}>
@@ -317,7 +317,7 @@ export default function Settings() {
                                         </s-query-container>
                                     </CustomSection>
 
-                                    <CustomSection>
+                                    {/*<CustomSection>
                                         <s-query-container>
                                             <s-grid gridTemplateColumns="@container (inline-size > 560px) 1fr auto, 1fr" gap="base" alignItems="center">
                                                 <s-stack gap="small">
@@ -331,7 +331,7 @@ export default function Settings() {
                                                 </s-button>
                                             </s-grid>
                                         </s-query-container>
-                                    </CustomSection>
+                                    </CustomSection>*/}
 
                                     <s-stack>
                                         <div style={{ display: "flex", flexWrap: "nowrap", gap: "6px", background: "#FFF7EB", borderRadius: "8px", overflow: "hidden", padding: "8px" }}>

@@ -1,10 +1,10 @@
 import isoCurrencies from "../assets/data/iso_currency.json";
 import {
   defaultCurrencyDesign,
-  defaultCurrencyGeneral,
   defaultSettingsWidget,
 } from "./default-settings";
 import { defaultSettingsGeneral } from "./store-default.server";
+import { getDefaultCurrencyGeneral } from "./currency-general.server";
 
 const DEFAULT_APP_METAFIELD_KEYS = [
   "settings_general",
@@ -16,7 +16,6 @@ const DEFAULT_APP_METAFIELD_KEYS = [
 
 const STATIC_DEFAULT_APP_METAFIELDS = {
   settings_widget: defaultSettingsWidget,
-  currency_general: defaultCurrencyGeneral,
   currency_design: defaultCurrencyDesign,
   iso_currencies: isoCurrencies,
 };
@@ -24,6 +23,9 @@ const STATIC_DEFAULT_APP_METAFIELDS = {
 async function getDefaultMetafieldValue(admin, key) {
   if (key === "settings_general") {
     return await defaultSettingsGeneral(admin);
+  }
+  if(key === "currency_general") {
+    return await getDefaultCurrencyGeneral(admin);
   }
 
   return STATIC_DEFAULT_APP_METAFIELDS[key];

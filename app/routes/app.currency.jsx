@@ -15,11 +15,12 @@ import { useAppBridge, SaveBar } from '@shopify/app-bridge-react';
 import currencies from "../assets/data/currencies.json";
 import { authenticate } from "../shopify.server";
 import {
-    defaultCurrencyDesign,
-    defaultCurrencyGeneral,
+    defaultCurrencyDesign
 } from "../utils/default-settings";
 import { defaultSettingsGeneral } from "../utils/store-default.server";
 import { ensureAppMetafields } from "../utils/metafields.server";
+
+import { getDefaultCurrencyGeneral } from "../utils/currency-general.server";
 
 export const loader = async ({ request }) => {
     const { admin } = await authenticate.admin(request);
@@ -28,10 +29,10 @@ export const loader = async ({ request }) => {
         "currency_design",
         "settings_general"
     ]);
-
+    console.log("Default Currency General", await getDefaultCurrencyGeneral(admin));
     return {
         currentAppInstallationId,
-        currencyGeneral: metafieldMap.currency_general || defaultCurrencyGeneral,
+        currencyGeneral: metafieldMap.currency_general || await getDefaultCurrencyGeneral(admin),
         currencyDesign: metafieldMap.currency_design || defaultCurrencyDesign,
         settingsGeneral: metafieldMap.settings_general || await defaultSettingsGeneral(admin),
         exchangeMeta: metafieldMap.exchange_meta || null

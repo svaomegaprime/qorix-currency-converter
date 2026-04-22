@@ -14,6 +14,7 @@ export default function WidgetPreview({ data, handleChange }) {
     const { visibility } = widgetSettings;
     const { position } = widgetSettings;
     const { offsetFromEdge } = widgetSettings;
+    const { enableOnDesktop, enableOnMobile } = visibility;
     const themeCustomisation = {
         backgroundColor: "#ffffff",
         textColor: "#303030",
@@ -230,6 +231,11 @@ export default function WidgetPreview({ data, handleChange }) {
                                             width: fit-content;
                                             height: fit-content;
                                         }
+                                        ${enableOnDesktop !== true ? `
+                                            .widget_buttons_wrapper{
+                                                display: none;
+                                            }
+                                        ` : ''}
                                         .widget_button{
                                             width: fit-content;
                                             height: fit-content;
@@ -389,6 +395,11 @@ export default function WidgetPreview({ data, handleChange }) {
                                             width: fit-content;
                                             height: fit-content;
                                         }
+                                        ${enableOnMobile !== true ? `
+                                            .widget_buttons_wrapper{
+                                                display: none;
+                                            }
+                                        ` : ''}
                                         .widget_button{
                                             width: fit-content;
                                             height: fit-content;

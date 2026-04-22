@@ -15,16 +15,16 @@ export const defaultSettingsWidget = {
   visibility: { enableOnDesktop: true, enableOnMobile: true },
 };
 
-export const defaultCurrencyGeneral = {
-  activeCurrencies: ["usd", "eur", "bdt"],
-  locationDetection: false,
-  priceDisplayFormat: "without_currency_code",
-  restrictedAutoSwitch: {
-    isEnabled: false,
-    restrictedCurrencies: ["jpy", "cny", "inr", "bdt"],
-  },
-  fallBackCurrency: "usd",
-};
+// export const defaultCurrencyGeneral = {
+//   activeCurrencies: ["usd", "eur", "bdt"],
+//   locationDetection: false,
+//   priceDisplayFormat: "without_currency_code",
+//   restrictedAutoSwitch: {
+//     isEnabled: false,
+//     restrictedCurrencies: ["jpy", "cny", "inr", "bdt"],
+//   },
+//   fallBackCurrency: "usd",
+// };
 
 export const defaultCurrencyDesign = {
   displayMode: "currency_code",

@@ -112,6 +112,8 @@
     const exchangeSyncProxyUrl = '/apps/currency-converter/exchange-sync';
     const analyticsProxyUrl = '/apps/currency-converter/analytics';
     const convertedBaseAmountAttribute = 'data-currency-converter-base-amount';
+    const priceAmountAttribute = 'data-amount';
+    const moneySelector = 'span.money';
     const visitorIdStorageKey = 'currencyConverterVisitorId';
     const widgetViewTrackedStorageKey = 'currencyConverterWidgetViewTracked';
     const exchangeRateFrequencyMap = {
@@ -546,24 +548,86 @@
     };
 
     const getBaseAmountForPriceElement = (priceElement) => {
-      const storedBaseAmount = priceElement.getAttribute(convertedBaseAmountAttribute);
-      const moneyFormatAmount = priceElement.getAttribute('data-amount');
-      const resolvedBaseAmount = storedBaseAmount || moneyFormatAmount;
-      const numericBaseAmount = Number.parseFloat(resolvedBaseAmount);
+      const storedBaseAmountValue = priceElement.getAttribute(convertedBaseAmountAttribute);
+      const moneyFormatAmountValue = priceElement.getAttribute(priceAmountAttribute);
+      const storedBaseAmount = Number.parseFloat(storedBaseAmountValue);
+      const moneyFormatAmount = Number.parseFloat(moneyFormatAmountValue);
 
-      if (!Number.isFinite(numericBaseAmount)) {
-        return null;
+      if (Number.isFinite(moneyFormatAmount)) {
+        if (!Number.isFinite(storedBaseAmount) || storedBaseAmount !== moneyFormatAmount) {
+          priceElement.setAttribute(convertedBaseAmountAttribute, String(moneyFormatAmount));
+        }
+
+        return moneyFormatAmount;
       }
 
-      if (!storedBaseAmount) {
-        priceElement.setAttribute(convertedBaseAmountAttribute, String(numericBaseAmount));
+      if (Number.isFinite(storedBaseAmount)) {
+        return storedBaseAmount;
       }
 
-      return numericBaseAmount;
+      return null;
     };
 
     const getCurrentSelectedCurrencyListItem = () => {
       return dropdown.querySelector('li.active') || getDefaultCurrencyListItem();
+    };
+
+    let currentCurrencySelection = null;
+    let priceMutationObserver = null;
+    let isPriceMutationObserverActive = false;
+    let scheduledPriceRefreshFrame = null;
+
+    const startPriceMutationObserver = () => {
+      if (!priceMutationObserver || isPriceMutationObserverActive) {
+        return;
+      }
+
+      priceMutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: [priceAmountAttribute]
+      });
+      isPriceMutationObserverActive = true;
+    };
+
+    const stopPriceMutationObserver = () => {
+      if (!priceMutationObserver || !isPriceMutationObserverActive) {
+        return;
+      }
+
+      priceMutationObserver.disconnect();
+      isPriceMutationObserverActive = false;
+    };
+
+    const runWithPriceMutationObserverPaused = (callback) => {
+      stopPriceMutationObserver();
+
+      try {
+        return callback();
+      } finally {
+        startPriceMutationObserver();
+      }
+    };
+
+    const refreshOriginalPriceHoverTargets = () => {
+      document.querySelectorAll(moneySelector).forEach((priceElement) => {
+        if (!shouldShowOriginalPriceOnHover) {
+          priceElement.removeAttribute('title');
+          return;
+        }
+
+        const baseAmount = getBaseAmountForPriceElement(priceElement);
+
+        if (baseAmount === null) {
+          priceElement.removeAttribute('title');
+          return;
+        }
+
+        const originalPriceLabel = `Original price: ${formatOriginalPrice(baseAmount)}`;
+        priceElement.setAttribute('title', originalPriceLabel);
+      });
     };
 
     const updateDisplayedPrices = (rate, symbol, currencyCode) => {
@@ -574,30 +638,79 @@
         return;
       }
 
-      document.querySelectorAll('span.money').forEach((priceElement) => {
-        const baseAmount = getBaseAmountForPriceElement(priceElement);
+      runWithPriceMutationObserverPaused(() => {
+        document.querySelectorAll(moneySelector).forEach((priceElement) => {
+          const baseAmount = getBaseAmountForPriceElement(priceElement);
 
-        if (baseAmount === null) {
-          return;
-        }
+          if (baseAmount === null) {
+            return;
+          }
 
-        {% comment %} sifat ........ {% endcomment %}
-        const convertedAmount = (baseAmount * numericRate).toFixed(2);
-        var priceCalculated = formatPrice(convertedAmount, symbol, currencyCode);
-        if(priceCalculated.charAt(0) === '.'){
-          priceCalculated = priceCalculated.slice(1);
-          priceElement.textContent = priceCalculated;
-        }else{
-          priceElement.textContent = priceCalculated;
-        }
+          {% comment %} sifat ........ {% endcomment %}
+          const convertedAmount = (baseAmount * numericRate).toFixed(2);
+          var priceCalculated = formatPrice(convertedAmount, symbol, currencyCode);
+          if(priceCalculated.charAt(0) === '.'){
+            priceCalculated = priceCalculated.slice(1);
+            priceElement.textContent = priceCalculated;
+          }else{
+            priceElement.textContent = priceCalculated;
+          }
 
-        if (shouldShowOriginalPriceOnHover) {
-          const originalPriceLabel = `Original price: ${formatOriginalPrice(baseAmount)}`;
-          priceElement.setAttribute('title',originalPriceLabel);
-        } else {
-          priceElement.removeAttribute('title');
-        }
+          if (shouldShowOriginalPriceOnHover) {
+            const originalPriceLabel = `Original price: ${formatOriginalPrice(baseAmount)}`;
+            priceElement.setAttribute('title', originalPriceLabel);
+          } else {
+            priceElement.removeAttribute('title');
+          }
+        });
       });
+    };
+
+    const findMoneyElementFromNode = (node) => {
+      if (!node) {
+        return null;
+      }
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        return node.parentElement ? node.parentElement.closest(moneySelector) : null;
+      }
+
+      if (!(node instanceof Element)) {
+        return null;
+      }
+
+      if (node.matches(moneySelector)) {
+        return node;
+      }
+
+      return node.closest(moneySelector) || node.querySelector(moneySelector);
+    };
+
+    const schedulePriceRefresh = () => {
+      if (scheduledPriceRefreshFrame !== null) {
+        return;
+      }
+
+      scheduledPriceRefreshFrame = window.requestAnimationFrame(() => {
+        scheduledPriceRefreshFrame = null;
+        reapplyCurrentCurrencySelection();
+      });
+    };
+
+    const mutationRequiresPriceRefresh = (mutation) => {
+      if (mutation.type === 'attributes' || mutation.type === 'characterData') {
+        return Boolean(findMoneyElementFromNode(mutation.target));
+      }
+
+      if (mutation.type === 'childList') {
+        if (findMoneyElementFromNode(mutation.target)) {
+          return true;
+        }
+
+        return Array.from(mutation.addedNodes).some((node) => Boolean(findMoneyElementFromNode(node)));
+      }
+
+      return false;
     };
 
     const applyCurrencySelection = (listItem, options = {}) => {
@@ -629,6 +742,12 @@
       if (buttonLabel) {
         buttonLabel.textContent = text;
       }
+
+      currentCurrencySelection = {
+        rate,
+        symbol: dataSymbol,
+        currencyCode
+      };
 
       button.setAttribute('data-currency-name', currencyName);
       button.setAttribute('data-currency-code', currencyCode.toUpperCase());
@@ -673,26 +792,33 @@
     });
 
     const reapplyCurrentCurrencySelection = () => {
-      const currentSelectedCurrencyListItem = getCurrentSelectedCurrencyListItem();
-      if (currentSelectedCurrencyListItem) {
-        applyCurrencySelection(currentSelectedCurrencyListItem, { persistPreference: false, trackEvent: false });
+      if (!currentCurrencySelection) {
+        const currentSelectedCurrencyListItem = getCurrentSelectedCurrencyListItem();
+
+        if (!currentSelectedCurrencyListItem) {
+          return;
+        }
+
+        currentCurrencySelection = {
+          rate: currentSelectedCurrencyListItem.getAttribute('data-rate'),
+          symbol: currentSelectedCurrencyListItem.getAttribute('data-symbol') || '',
+          currencyCode: currentSelectedCurrencyListItem.getAttribute('data-currency') || ''
+        };
       }
+
+      updateDisplayedPrices(
+        currentCurrencySelection.rate,
+        currentCurrencySelection.symbol,
+        currentCurrencySelection.currencyCode
+      );
       refreshOriginalPriceHoverTargets();
     };
 
-    const priceMutationObserver = new MutationObserver((mutations) => {
-      const hasNewMoneyElements = mutations.some((mutation) => {
-        return Array.from(mutation.addedNodes).some((node) => {
-          if (!(node instanceof Element)) {
-            return false;
-          }
+    priceMutationObserver = new MutationObserver((mutations) => {
+      const hasRelevantMoneyMutation = mutations.some((mutation) => mutationRequiresPriceRefresh(mutation));
 
-          return node.matches('span.money') || Boolean(node.querySelector('span.money'));
-        });
-      });
-
-      if (hasNewMoneyElements) {
-        reapplyCurrentCurrencySelection();
+      if (hasRelevantMoneyMutation) {
+        schedulePriceRefresh();
       }
     });
 
@@ -702,7 +828,7 @@
       const initialCurrencyListItem = await getInitialCurrencyListItem();
       applyCurrencySelection(initialCurrencyListItem, { persistPreference: false, source: currentSelectionSource });
       refreshOriginalPriceHoverTargets();
-      priceMutationObserver.observe(document.body, { childList: true, subtree: true });
+      startPriceMutationObserver();
     };
 
     initializeWidget();
