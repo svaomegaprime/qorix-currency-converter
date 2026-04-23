@@ -24,7 +24,7 @@ export default function App() {
 
             <ul className="navLinks">
               <li>
-                <a href="https://qorix-currency-docs.softvenceomega.com/docs">Docs</a>
+                <a href="https://qorix-currency-docs.softvenceomega.com">Docs</a>
               </li>
               <li>
                 <a href="https://qorix-currency-docs.softvenceomega.com/privacy-policy">Privacy Policy</a>
