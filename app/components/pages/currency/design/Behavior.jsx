@@ -61,7 +61,7 @@ export default function Behavior({ handleChange, data }) {
                 <s-stack gap="small">
                     <s-switch checked={darkModeSupport} onChange={handleDarkModeSupportChange} label="Dark mode support" details="Auto-matches store dark theme" />
                     {/* <s-switch checked={showCurrencyNameOnHover} onChange={handleShowCurrencyNameOnHoverChange} label="Show currency name on hover" details="Tooltip showing full currency name" /> */}
-                    <s-switch checked={showOriginalPriceOnHover} onChange={handleShowOriginalPriceOnHoverChange} label="Show original price on hover" details="Displays base price on mouseover" />
+                    <s-switch checked={showOriginalPriceOnHover} onChange={handleShowOriginalPriceOnHoverChange} label="Show original price on hover" details="Displays base price on mouseover on product page only" />
                 </s-stack>
             </CustomSection>
         </CustomGridSection>
